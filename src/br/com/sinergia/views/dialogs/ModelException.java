@@ -2,6 +2,7 @@ package br.com.sinergia.views.dialogs;
 
 import br.com.sinergia.functions.log.GravaLog;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.CharArrayWriter;
 import java.io.PrintWriter;
 
-public final class ModelException extends Exception {
+public final class ModelException extends Dialog {
 
     private static ModelException modelException;
     private Class invoker;

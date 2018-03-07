@@ -1,0 +1,44 @@
+<!--
+Colocar o id da tela no botão, mais especificamente no Identifier;
+Assim, quando o botão for clicado, a gente coloca no Identifier e procura o FXML para pegar os paths
+E também, quando for buscar os acessos, pega pelo id da tela TSIPER.CODTELA;
+Quando tiver algum insideFrame (Ex.: Produtos (Unidade Alternativa)) quem tem que chamar o inside
+é o código fonte do controller da tela, no caso, Produtos deve conter a chamada da Unidade Alternativa
+-->
+<Telas>
+    <Tela id="1101">
+        <idx>0</idx>
+        <descrTela>Locais</descrTela>
+        <path>Cadastros > Locais</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/Locais.fxml</founder>
+    </Tela>
+    <Tela id="1102">
+        <idx>1</idx>
+        <descrTela>Unidades</descrTela>
+        <path>Cadastros > Unidades</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/Unidades.fxml</founder>
+    </Tela>
+    <Tela id="1115">
+        <idx>2</idx>
+        <descrTela>Grupos de Produtos</descrTela>
+        <path>Cadastros > Grupos de Produtos</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/GrupoDeProdutos.fxml</founder>
+    </Tela>
+    <Tela id="1025">
+        <idx>3</idx>
+        <descrTela>Produtos</descrTela>
+        <path>Cadastros > Produtos</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/Produtos.fxml</founder>
+    </Tela>
+    <Tela id="1069">
+        <idx>4</idx>
+        <descrTela>Unidades Alternativa</descrTela>
+        <path>Cadastros > Produtos > Unidades Alternativa</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/UndAlternativa.fxml</founder>
+    </Tela>
+</Telas>
