@@ -16,6 +16,7 @@ import static br.com.sinergia.functions.functions.toBoo;
 
 public class Telas {
 
+    private static ArrayList<String> menus = new ArrayList<>();
     private static ArrayList<Tela> telas = new ArrayList<>();
     private static final URL urlXML = Telas.class.getResource("/br/com/sinergia/functions/frames/Telas.xml");
 
@@ -36,6 +37,7 @@ public class Telas {
                 Boolean isFrame = toBoo(element.getElementsByTagName("isFrame").item(0).getTextContent());
                 String founder = element.getElementsByTagName("founder").item(0).getTextContent();
                 getTelas().add(new Tela(codTela, descrTela, pathTela, isFrame, founder));
+                if(!getMenus().contains(pathTela)) getMenus().add(pathTela);
             }
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             throw new Error(ex);
@@ -55,7 +57,19 @@ public class Telas {
         return telas;
     }
 
-    public static void setTelas(ArrayList<Tela> telas) {
-        Telas.telas = telas;
+    public static ArrayList<Tela> getByMenu(String menu) throws Error {
+        if(getMenus().contains(menu)) {
+            ArrayList<Tela> telas = new ArrayList<>();
+            for(Tela tela: getTelas()) {
+                if(tela.getPathTela().equals(menu)) telas.add(tela);
+            }
+            return telas;
+        } else {
+            throw new Error("Não encontrado menu com descrição igual a: " + menu);
+        }
+    }
+
+    public static ArrayList<String> getMenus() {
+        return menus;
     }
 }

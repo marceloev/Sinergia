@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -17,9 +18,16 @@ public class main extends Application {
     public void start(Stage primaryStage) {
         try {
             Telas.loadConf();
+            for (String menu : Telas.getMenus()) {
+                System.out.println(menu);
+            }
+            for (Tela tela : Telas.getByMenu("Cadastros")) {
+                System.out.println(tela.getDescrTela());
+            }
             Tela tela = Telas.getByCod(0);
             Parent root = FXMLLoader.load(getClass().getResource(tela.getFounder()));
             Scene scene = new Scene(root);
+            primaryStage.getIcons().add(new Image("/br/com/sinergia/views/images/Icone_Sistema.png"));
             primaryStage.setTitle(tela.getDescrTela());
             primaryStage.setScene(scene);
             primaryStage.show();
