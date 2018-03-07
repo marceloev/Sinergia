@@ -1,0 +1,222 @@
+07/03/2018-12:38:12,856 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-12:38:12,981 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-12:38:13,009 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:17:46,414 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:17:46,540 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 49 milisegundo(s) 
+07/03/2018-13:17:46,589 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:20:07,743 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:56)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:26)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:23:03,832 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:63)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:23:13,643 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:23:13,773 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 50 milisegundo(s) 
+07/03/2018-13:23:13,824 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:24:07,911 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:24:08,031 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 46 milisegundo(s) 
+07/03/2018-13:24:08,058 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:26:32,888 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:26:33,010 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:26:33,038 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:27:23,972 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:27:24,093 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 46 milisegundo(s) 
+07/03/2018-13:27:24,120 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:27:30,939 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:27:31,062 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:27:31,092 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:28:24,457 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:28:24,588 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 52 milisegundo(s) 
+07/03/2018-13:28:24,618 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:29:27,715 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:29:27,722 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+null 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:33)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:29:47,456 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:29:47,462 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+null 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:33)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:30:13,482 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:30:13,488 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:33)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:30:43,993 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:30:43,999 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:33)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:31:56,428 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:31:56,435 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:34)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:32:07,425 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:32:07,432 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:34)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:32:15,882 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:32:15,889 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:34)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:32:28,676 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:32:28,682 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:34)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:33:33,450 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:33:33,458 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.lang.NullPointerException 
+java.lang.NullPointerException
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:33)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:34:19,467 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:34:19,589 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:34:19,616 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:34:25,771 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:34:25,896 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 49 milisegundo(s) 
+07/03/2018-13:34:25,924 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:34:46,688 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:34:46,811 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:34:46,841 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:37:51,572 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:37:51,697 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 48 milisegundo(s) 
+07/03/2018-13:37:51,733 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:40:48,166 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:63)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
