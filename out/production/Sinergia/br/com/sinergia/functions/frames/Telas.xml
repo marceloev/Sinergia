@@ -6,36 +6,43 @@ Quando tiver algum insideFrame (Ex.: Produtos (Unidade Alternativa)) quem tem qu
 é o código fonte do controller da tela, no caso, Produtos deve conter a chamada da Unidade Alternativa
 -->
 <Telas>
-    <Tela id="1101">
+    <Tela id="0">
         <idx>0</idx>
+        <descrTela>Sistema Sinergia: </descrTela>
+        <path>null</path>
+        <isFrame>S</isFrame>
+        <founder>/br/com/sinergia/views/fxml/Login.fxml</founder>
+    </Tela>
+    <Tela id="1101">
+        <idx>1</idx>
         <descrTela>Locais</descrTela>
         <path>Cadastros > Locais</path>
         <isFrame>S</isFrame>
         <founder>/br/com/sinergia/views/fxml/Locais.fxml</founder>
     </Tela>
     <Tela id="1102">
-        <idx>1</idx>
+        <idx>2</idx>
         <descrTela>Unidades</descrTela>
         <path>Cadastros > Unidades</path>
         <isFrame>S</isFrame>
         <founder>/br/com/sinergia/views/fxml/Unidades.fxml</founder>
     </Tela>
     <Tela id="1115">
-        <idx>2</idx>
+        <idx>3</idx>
         <descrTela>Grupos de Produtos</descrTela>
         <path>Cadastros > Grupos de Produtos</path>
         <isFrame>S</isFrame>
         <founder>/br/com/sinergia/views/fxml/GrupoDeProdutos.fxml</founder>
     </Tela>
     <Tela id="1025">
-        <idx>3</idx>
+        <idx>4</idx>
         <descrTela>Produtos</descrTela>
         <path>Cadastros > Produtos</path>
         <isFrame>S</isFrame>
         <founder>/br/com/sinergia/views/fxml/Produtos.fxml</founder>
     </Tela>
     <Tela id="1069">
-        <idx>4</idx>
+        <idx>5</idx>
         <descrTela>Unidades Alternativa</descrTela>
         <path>Cadastros > Produtos > Unidades Alternativa</path>
         <isFrame>S</isFrame>

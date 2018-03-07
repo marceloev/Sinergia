@@ -42,6 +42,15 @@ public class Telas {
         }
     }
 
+    public static Tela getByCod(Integer cod) {
+        for(Tela tela: Telas.getTelas()) {
+            if(tela.getCodTela().equals(cod)) {
+                return tela;
+            }
+        }
+        return null;
+    }
+
     public static class Tela {
         private Integer codTela;
         private String descrTela;
