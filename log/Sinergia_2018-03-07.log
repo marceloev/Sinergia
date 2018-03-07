@@ -220,3 +220,162 @@ java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportad
 	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
 	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
 	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:43:33,881 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:63)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:43:35,873 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:63)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:43:50,401 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:63)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:45:13,271 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:62)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:45:20,947 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:62)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:46:09,587 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:46:09,711 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 49 milisegundo(s) 
+07/03/2018-13:46:09,743 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:46:30,611 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0 
+07/03/2018-13:46:30,733 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:46:30,761 | INFO [class br.com.sinergia.controller.fxml.main] : 0 - SUP 
+07/03/2018-13:48:18,165 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 1 
+07/03/2018-13:48:18,297 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 52 milisegundo(s) 
+07/03/2018-13:48:18,305 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLException: Conjunto de resultados após a última linha 
+java.sql.SQLException: Conjunto de resultados após a última linha
+	at oracle.jdbc.driver.GeneratedScrollableResultSet.getString(GeneratedScrollableResultSet.java:879)
+	at br.com.sinergia.controller.fxml.main.start(main.java:37)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:52:24,929 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 1 
+07/03/2018-13:52:25,053 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 47 milisegundo(s) 
+07/03/2018-13:52:25,062 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLException: Conjunto de resultados após a última linha 
+java.sql.SQLException: Conjunto de resultados após a última linha
+	at oracle.jdbc.driver.GeneratedScrollableResultSet.getString(GeneratedScrollableResultSet.java:879)
+	at br.com.sinergia.controller.fxml.main.start(main.java:37)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:53:14,706 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 1 
+07/03/2018-13:53:14,824 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 44 milisegundo(s) 
+07/03/2018-13:53:14,833 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLException: Conjunto de resultados após a última linha 
+java.sql.SQLException: Conjunto de resultados após a última linha
+	at oracle.jdbc.driver.GeneratedScrollableResultSet.getString(GeneratedScrollableResultSet.java:879)
+	at br.com.sinergia.controller.fxml.main.start(main.java:37)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:53:39,940 | ERROR [class br.com.sinergia.controller.fxml.main] : Erro ao tentar conectar com banco de dados
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado. 
+java.sql.SQLClientInfoException: Nome para clientInfo inválido ou não suportado.
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfoInternal(PhysicalConnection.java:11618)
+	at oracle.jdbc.driver.PhysicalConnection.setClientInfo(PhysicalConnection.java:11547)
+	at br.com.sinergia.database.conector.DBConn.conecta(DBConn.java:62)
+	at br.com.sinergia.database.conector.DBConn.<init>(DBConn.java:27)
+	at br.com.sinergia.controller.fxml.main.start(main.java:32)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+07/03/2018-13:54:07,496 | INFO [class br.com.sinergia.controller.fxml.main] : SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 2 
+07/03/2018-13:54:07,622 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 53 milisegundo(s) 
+07/03/2018-13:54:07,649 | INFO [class br.com.sinergia.controller.fxml.main] : 2 - ADELCIONE 

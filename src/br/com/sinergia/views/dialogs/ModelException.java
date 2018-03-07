@@ -9,8 +9,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
+import java.io.CharArrayWriter;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 
 public final class ModelException extends Exception {
 
@@ -23,7 +23,7 @@ public final class ModelException extends Exception {
     public ModelException(Class invoker, String titulo, String mensagem) {
         super();
         setInvoker(invoker);
-        if(titulo == null) setTitulo("Sistema Sinergia:");
+        if (titulo == null) setTitulo("Sistema Sinergia:");
         else setTitulo(titulo);
         setMensagem(mensagem);
         setExecption(null);
@@ -32,7 +32,7 @@ public final class ModelException extends Exception {
     public ModelException(Class invoker, String titulo, String mensagem, Throwable execption) {
         super();
         setInvoker(invoker);
-        if(titulo == null) setTitulo("Sistema Sinergia:");
+        if (titulo == null) setTitulo("Sistema Sinergia:");
         else setTitulo(titulo);
         setMensagem(mensagem);
         setExecption(execption);
@@ -53,10 +53,11 @@ public final class ModelException extends Exception {
             GravaLog.gravaErro(getInvoker(), getMensagem(), getExecption());
             /*Criamos uma expensão pois, foi uma exception e tem stacktrace
             Quando não é exception, ou seja, erro criado, não tem porque criar*/
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            this.printStackTrace(pw);
-            String exceptionText = sw.toString();
+            CharArrayWriter cw = new CharArrayWriter();
+            PrintWriter w = new PrintWriter(cw);
+            execption.printStackTrace(w);
+            w.close();
+            String exceptionText = cw.toString();
             Label label = new Label("Veja o caminho completo do erro:");
             TextArea textArea = new TextArea(exceptionText);
             textArea.setEditable(false);

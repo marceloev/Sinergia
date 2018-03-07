@@ -30,7 +30,7 @@ public class main extends Application {
             try {
                 DatabaseConf.setDatabaseConf("192.168.0.170", "1521/ORCL", "HDESNK03", "tecsis");
                 conex = new DBConn(this.getClass(), false,
-                        "SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 0");
+                        "SELECT CODUSU, NOMEUSU FROM TSIUSU WHERE CODUSU = 2");
                 conex.createSet();
                 conex.rs.next();
                 ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.INFORMATION,
@@ -47,6 +47,7 @@ public class main extends Application {
             ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar conectar com banco de dados\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
         } finally {
+            conex.desconecta();
         }
     }
 }

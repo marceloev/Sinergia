@@ -53,15 +53,13 @@ public class DBConn {
                     "Operação cancelada.");
         }
         System.setProperty("jdbc.Drivers", DatabaseConf.driver);
-        System.out.println(DatabaseConf.getCaminho());
         Properties jdbcProperties = new Properties();
         jdbcProperties.put("user", DatabaseConf.getUsuario());
         jdbcProperties.put("password", DatabaseConf.getSenha());
         jdbcProperties.put("v$session.program", "Sinergia");
         jdbcProperties.put("ServiceName", "Cadastro de Produtos");
         con = DriverManager.getConnection(DatabaseConf.getCaminho(), jdbcProperties);
-        con.setClientInfo("oi", "oi");
-    }
+ }
 
     public void createSet() throws SQLException {
         long time = System.currentTimeMillis();
