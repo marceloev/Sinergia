@@ -39,6 +39,11 @@ public class functions {
         }
     }
 
+    public static Boolean toBoo(Integer valor) {
+        if(valor.equals(1)) return true;
+        else return false;
+    }
+
     public static Integer getOnlyNumber(String valor) {
         return Integer.valueOf(valor.replaceAll("[^0-9]", ""));
     }

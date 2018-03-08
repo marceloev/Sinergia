@@ -1,4 +1,4 @@
-package br.com.sinergia.controller.statics;
+package br.com.sinergia.models.statics;
 
 import javafx.beans.binding.DoubleBinding;
 

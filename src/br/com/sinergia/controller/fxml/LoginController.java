@@ -1,10 +1,14 @@
 package br.com.sinergia.controller.fxml;
 
+import br.com.sinergia.controller.statics.AppInfo;
 import br.com.sinergia.controller.statics.ComputerInfo;
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.MaskField;
 import br.com.sinergia.functions.log.ReadRegedit;
+import br.com.sinergia.models.statics.AppInfo;
+import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelDialog;
+import br.com.sinergia.views.dialogs.ModelException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sun.security.pkcs11.wrapper.Functions;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -31,10 +36,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import static br.com.sinergia.functions.functions.toBoo;
+
 public class LoginController implements Initializable {
 
     final String keyPath = "HKLM\\Software\\Sinergia\\DBAlias\\Produção\\";
     String versãoExec = "1.0.0";
+    DBConn conex;
 
     @FXML
     private AnchorPane PaneLogin;
@@ -83,7 +91,7 @@ public class LoginController implements Initializable {
         });
     }
 
-    private void catchInfoLogin() throws Error, Exception {
+    private void catchInfoLogin() {
         try {
             if (TxtLogin.getText() == null || TxtLogin.getText().equals("")) {
                 throw new Error("Login não pode ser vazio");
@@ -91,73 +99,57 @@ public class LoginController implements Initializable {
                 throw new Error("Senha não pode ser vazia");
             }
             if (tryConectDB()) {
-                ConexaoBD.getInstancia().setIPMaq(ReadRegedit.readRegistry(KeyPath, "IP"));
-                ConexaoBD.getInstancia().setPorta(ReadRegedit.readRegistry(KeyPath, "Port"));
-                ConexaoBD.getInstancia().setUsuario(ReadRegedit.readRegistry(KeyPath, "User"));
-                String CryptDBPassword = ReadRegedit.readRegistry(KeyPath, "Password");
-                ConexaoBD.getInstancia().setSenha(uncryptPass(CryptDBPassword));
-                statement = new Statement("SELECT COUNT(1) FROM TSIUSU WHERE LOGIN = ?");
-                statement.addParameter(TxtLogin.getText());
-                statement.createSet();
-                statement.rs.next();
-                Boolean UserExists = Functions.ToBoo(statement.rs.getInt(1));
+                conex = new DBConn(this.getClass(), true, "SELECT COUNT(1) FROM TSIUSU WHERE LOGIN = ?");
+                conex.addParameter(TxtLogin.getText());
+                conex.createSet();
+                conex.rs.next();
+                Boolean UserExists = toBoo(conex.rs.getInt(1));
                 if (!UserExists) {
-                    noError = false;
-                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
-                            null,
+                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
                             "Usuário não encontrado para login digitado"));
                     ModelDialog.getDialog().raise();
                     return;
                 } //Se continuou, é porque o usuário existe.
-                statement = new Statement("SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,\n" +
+                conex = new DBConn(this.getClass(), false, "SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,\n" +
                         "GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ " +
                         "FROM TSIUSU USU\n" +
                         "INNER JOIN TSIEMP EMP\n" +
                         "ON (USU.CODEMP = EMP.CODEMP)" +
                         "WHERE USU.LOGIN = ?");
-                statement.addParameter(TxtSenha.getText(), "(Criptografado)");
-                statement.addParameter("VERSAOATUALDB");
-                statement.addParameter(0);
-                statement.addParameter(TxtLogin.getText());
-                statement.createSet();
-                statement.rs.next();
-                AppInfo.getInfo().setVersãoBD(statement.rs.getString("VERSAOATUALDB"));
+                conex.addParameter(TxtSenha.getText(), "(Criptografado)");
+                conex.addParameter("VERSAOATUALDB");
+                conex.addParameter(0);
+                conex.addParameter(TxtLogin.getText());
+                conex.createSet();
+                conex.rs.next();
+                AppInfo.setVersaoDB(conex.rs.getString("VERSAOATUALDB"));
                 Image ImgUsu;
-                if (statement.rs.getBytes("FOTO") != null) {
-                    InputStream input = new ByteArrayInputStream(statement.rs.getBytes("FOTO"));
+                if (conex.rs.getBytes("FOTO") != null) {
+                    InputStream input = new ByteArrayInputStream(conex.rs.getBytes("FOTO"));
                     ImgUsu = new Image(input);
                 } else {
                     ImgUsu = new Image("/br/com/sinergia/properties/images/default.png");
                 }
-                User.setCurrent(new User(statement.rs.getInt("CODUSU"),
-                        Functions.ToBoo(statement.rs.getString("ATIVO")),
+                User.setCurrent(new User(conex.rs.getInt("CODUSU"),
+                        toBoo(conex.rs.getString("ATIVO")),
                         TxtLogin.getText(),
-                        statement.rs.getString("NOME"),
+                        conex.rs.getString("NOME"),
                         ImgUsu,
-                        statement.rs.getInt("PERFIL"),
-                        statement.rs.getString("SENHA"),
-                        statement.rs.getString("CRYPT"),
-                        statement.rs.getInt("CODEMP"),
-                        statement.rs.getString("NOMEFANTASIA"),
-                        statement.rs.getString("RAZAOSOCIAL"),
-                        statement.rs.getString("CNPJ")));
+                        conex.rs.getInt("PERFIL"),
+                        conex.rs.getString("SENHA"),
+                        conex.rs.getString("CRYPT"),
+                        conex.rs.getInt("CODEMP"),
+                        conex.rs.getString("NOMEFANTASIA"),
+                        conex.rs.getString("RAZAOSOCIAL"),
+                        conex.rs.getString("CNPJ")));
             }
-        } catch (SQLException ex) {
-            noError = false;
-            ModelException.setNewException(new ModelException(this.getClass(), null,
-                    "Erro ao tentar autenticar login do usuário\n" + ex,
-                    ex));
-            ModelException.getException().raise();
+        } catch (Error ex) {
+            ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null, ex.getMessage()));
         } catch (Exception ex) {
-            noError = false;
-            ModelException.setNewException(new ModelException(this.getClass(), null,
-                    "Erro ao tentar autenticar login do usuário\n" + ex,
-                    ex));
-            ModelException.getException().raise();
+            ModelException.setNewException(new ModelException(this.getClass(), null, ex.getMessage(), ex));
+            ModelException.getDialog().raise();
         } finally {
-            if (noError) {
-                statement.end();
-            }
+            conex.desconecta();
         }
     }
 
