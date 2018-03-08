@@ -38,4 +38,8 @@ public class functions {
             return false;
         }
     }
+
+    public static Integer getOnlyNumber(String valor) {
+        return Integer.valueOf(valor.replaceAll("[^0-9]", ""));
+    }
 }
