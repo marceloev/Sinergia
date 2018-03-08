@@ -15,6 +15,7 @@ import br.com.sinergia.views.dialogs.ModelDialogButton;
 import br.com.sinergia.views.dialogs.ModelException;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,8 +27,11 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -39,9 +43,10 @@ import java.util.ResourceBundle;
 
 import static br.com.sinergia.functions.functions.toBoo;
 
-public class LoginController implements Initializable {
+public class LoginCtrl implements Initializable {
 
     final String keyPath = "HKLM\\Software\\Sinergia\\DBAlias\\Producao\\";
+    Boolean capsOff = false;
     int tentativa = 0;
     String versãoExec = "1.0.0";
     DBConn conex;
@@ -57,6 +62,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        AppInfo.setVersaoExec(versãoExec);
         propriedades();
         registraInfo();
     }
@@ -79,26 +85,21 @@ public class LoginController implements Initializable {
         BtnAcessar.setOnAction((ActionEvent evt) -> {
             autenticarLogin();
         });
-        TxtSenha.setOnKeyReleased(evt-> {
-            if(evt.getCode() == KeyCode.CAPS) {
-                TxtSenha.setFocusColor((Paint)0x4059a9ff);
+        TxtSenha.focusedProperty().addListener((obs, wasF, isF) -> {
+            if (isF) {
+                Toolkit.getDefaultToolkit().setLockingKeyState(KeyEvent.VK_CAPS_LOCK, false);
+                capsOff = true;
             }
         });
-        System.out.println("Cor: " + TxtSenha.getFocusColor());
-        /*PaneLogin.setOnKeyReleased(e -> {
-            if (e.getCode() == KeyCode.CAPS) {
-                isCapsLocked = !isCapsLocked;
-                getCaseSensitive(isCapsLocked, TxtSenha.isFocused());
+        TxtSenha.setOnKeyReleased(evt -> {
+            if (evt.getCode() == KeyCode.CAPS) {
+                capsOff = !capsOff;
+                Platform.runLater(() -> {
+                    if (capsOff) TxtSenha.setFocusColor(Color.valueOf("#2b55dd"));
+                    else TxtSenha.setFocusColor(Color.RED);
+                });
             }
         });
-        TxtSenha.focusedProperty().addListener((obs, wasFocused, isFocused) -> {
-            if (isFocused) {
-                Toolkit.getDefaultToolkit().setLockingKeyState(KeyEvent.VK_CAPS_LOCK, isCapsLocked);
-                getCaseSensitive(isCapsLocked, true);
-            } else {
-                getCaseSensitive(isCapsLocked, false);
-            }
-        });*/
     }
 
     private Boolean validLogin() {
@@ -158,7 +159,7 @@ public class LoginController implements Initializable {
                         conex.rs.getString("CNPJ")));
             }
             return true;
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar comunicar com Banco de Dados\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
             return false;
@@ -167,7 +168,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    private Boolean tryConectDB() throws Error, SQLException {
+    private Boolean tryConectDB() {
         String ip = ReadRegedit.readRegistry(keyPath, "IP");
         String port = ReadRegedit.readRegistry(keyPath, "Port");
         String user = ReadRegedit.readRegistry(keyPath, "User");
@@ -184,6 +185,7 @@ public class LoginController implements Initializable {
                     "Usuário: " + user + "\n" +
                     "Senha: (Criptografado)", ex));
             ModelException.getDialog().raise();
+            System.out.println("False");
             return false;
         }
     }
@@ -279,15 +281,15 @@ public class LoginController implements Initializable {
                 Stage stage_old = (Stage) TxtLogin.getScene().getWindow();
                 stage_old.close();
             } catch (Exception ex) {
-                ModelException Error = new ModelException(this.getClass(), null, ex.getMessage() + "\n" + ex, ex);
-                Error.raise();
+                ModelException.setNewException(new ModelException(this.getClass(), null , ex.getMessage(), ex));
+                ModelException.getDialog().raise();
             }
         }
 
     }
 
     private String uncryptPass(String StringByted) {
-        ArrayList<String> ArrayCryptPass = new ArrayList<String>(Arrays.asList(StringByted.split("-")));
+        ArrayList<String> ArrayCryptPass = new ArrayList<>(Arrays.asList(StringByted.split("-")));
         String DBPassword = "";
         for (String CryptPass : ArrayCryptPass) {
             CryptPass = CryptPass.trim();
@@ -304,20 +306,21 @@ public class LoginController implements Initializable {
             conex.createSet();
             conex.rs.next();
             User.getCurrent().setCodSessão(conex.rs.getInt(1));
+            System.out.println("Passou");
             conex = new DBConn(this.getClass(), false,
                     "INSERT INTO TSISES\n"
                             + "(CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n"
                             + "VALUES\n"
-                            + "(?, ?, ?, ?, ?, ?)");
+                            + "(?, ?, SYSDATE, ?, ?, ?)");
+            System.out.println("Passou2");
             conex.addParameter(User.getCurrent().getCodSessão());
             conex.addParameter(User.getCurrent().getCodUsu());
-            conex.addParameter(java.sql.Timestamp.from(java.time.Instant.now()));
             conex.addParameter(ComputerInfo.getIPMáquina());
             conex.addParameter(ComputerInfo.getNomeMáquina());
             conex.addParameter(AppInfo.getVersaoExec());
             conex.run();
         } catch (Exception ex) {
-            throw new Exception("Erro ao tentar registrar sessão\n" + ex.getMessage(), ex);
+            throw new Exception("Erro ao tentar registrar sessão\n" + ex.getMessage());
         }
     }
 

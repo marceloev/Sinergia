@@ -24,8 +24,7 @@ public final class ModelException extends Dialog {
     public ModelException(Class invoker, String titulo, String mensagem) {
         super();
         setInvoker(invoker);
-        if (titulo == null) setTitulo("Sistema Sinergia:");
-        else setTitulo(titulo);
+        setTitulo(titulo);
         setMensagem(mensagem);
         setExecption(null);
     }
@@ -33,8 +32,7 @@ public final class ModelException extends Dialog {
     public ModelException(Class invoker, String titulo, String mensagem, Throwable execption) {
         super();
         setInvoker(invoker);
-        if (titulo == null) setTitulo("Sistema Sinergia:");
-        else setTitulo(titulo);
+        setTitulo(titulo);
         setMensagem(mensagem);
         setExecption(execption);
     }

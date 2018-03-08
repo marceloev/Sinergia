@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="PaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.LoginController">
+<AnchorPane id="AnchorPane" fx:id="PaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.LoginCtrl">
     <children>
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,7 +29,7 @@
             <Image url="@../images/Icone_Usuário.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="TxtLogin" alignment="CENTER" focusColor="#2b55dd" layoutX="33.0" layoutY="70.0" prefHeight="25.0" prefWidth="150.0" text="TxtLogin">
+      <JFXTextField fx:id="TxtLogin" alignment="CENTER" focusColor="#2b55dd" layoutX="33.0" layoutY="70.0" prefHeight="25.0" prefWidth="150.0">
          <tooltip>
             <Tooltip text="Digite aqui seu Login">
                <font>
@@ -43,7 +43,7 @@
             <Image url="@../images/Icone_Senha.png" />
          </image>
       </ImageView>
-      <JFXPasswordField fx:id="TxtSenha" alignment="CENTER" layoutX="33.0" layoutY="118.0" prefHeight="25.0" prefWidth="150.0" text="TxtSenha" />
+      <JFXPasswordField fx:id="TxtSenha" alignment="CENTER" layoutX="33.0" layoutY="118.0" prefHeight="25.0" prefWidth="150.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="210.0" prefHeight="17.0" prefWidth="160.0" text="Sistema Sinergia">
             <font>
                 <Font size="14.0" />

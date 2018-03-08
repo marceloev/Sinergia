@@ -21,6 +21,19 @@ public class DBConn {
     private DBConnModel connection;
     private Integer index = 1;
 
+    public DBConn(Class invoker, String query) throws SQLException {
+        super();
+        index = 1;
+        connection = new DBConnModel(invoker, false, false, 0);
+        conecta();
+        setQuery(query);
+        if (!connection.getHide()) {
+            GravaLog.gravaInfo(connection.getInvoker(), getQuery());
+        }
+        getConnections().add(connection);
+        pst = con.prepareStatement(getQuery(), ResultSet.TYPE_SCROLL_INSENSITIVE);
+    }
+
     public DBConn(Class invoker, Boolean hide, String query) throws SQLException {
         super();
         index = 1;
@@ -92,8 +105,10 @@ public class DBConn {
     public void run() throws SQLException {
         long time = System.currentTimeMillis();
         if (!connection.getHide()) {
+            int rows = pst.executeUpdate();
             time = System.currentTimeMillis() - time;
             GravaLog.gravaInfo(this.getClass(), "DB SourceConnection: Statement executado em " + time + " milisegundo(s)");
+            GravaLog.gravaInfo(this.getClass(), rows + " linha(s) afetadas.");
         }
     }
 
