@@ -1,5 +1,7 @@
 package br.com.sinergia.models.usage;
 
+import br.com.sinergia.database.conector.DBConn;
+import br.com.sinergia.views.dialogs.ModelException;
 import javafx.scene.image.Image;
 
 import java.sql.Timestamp;
@@ -159,5 +161,24 @@ public class User {
 
     public void setFotoUsu(Image fotoUsu) {
         this.fotoUsu = fotoUsu;
+    }
+
+    public void closeSessao() {
+        try {
+            DBConn statement = new DBConn(this.getClass(), false, "UPDATE TSISES\n" +
+                    "SET DHLOGOUT = ?\n"
+                    + "WHERE CODSESSAO = ?\n"
+                    + "AND CODUSU = ?");
+            statement.addParameter(Timestamp.from(Instant.now()));
+            statement.addParameter(getCodSessão());
+            statement.addParameter(getCodUsu());
+            statement.run();
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(this.getClass(), null,
+                    "Erro ao tentar finalizar sessão do usuário\n" +
+                            ex.getMessage(),
+                    ex));
+            ModelException.getDialog().raise();
+        }
     }
 }

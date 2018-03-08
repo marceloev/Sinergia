@@ -89,6 +89,14 @@ public class DBConn {
         timeline.play();
     }
 
+    public void run() throws SQLException {
+        long time = System.currentTimeMillis();
+        if (!connection.getHide()) {
+            time = System.currentTimeMillis() - time;
+            GravaLog.gravaInfo(this.getClass(), "DB SourceConnection: Statement executado em " + time + " milisegundo(s)");
+        }
+    }
+
     public void addParameter(Object objeto) throws SQLException {
         if (objeto == null) {
             addNullParameter();

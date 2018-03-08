@@ -1,32 +1,33 @@
 package br.com.sinergia.controller.fxml;
 
-import br.com.sinergia.controller.statics.AppInfo;
-import br.com.sinergia.controller.statics.ComputerInfo;
 import br.com.sinergia.database.conector.DBConn;
+import br.com.sinergia.database.conector.DatabaseConf;
+import br.com.sinergia.functions.CtrlArquivos;
 import br.com.sinergia.functions.MaskField;
+import br.com.sinergia.functions.frames.Tela;
+import br.com.sinergia.functions.frames.Telas;
 import br.com.sinergia.functions.log.ReadRegedit;
 import br.com.sinergia.models.statics.AppInfo;
+import br.com.sinergia.models.statics.ComputerInfo;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelDialog;
+import br.com.sinergia.views.dialogs.ModelDialogButton;
 import br.com.sinergia.views.dialogs.ModelException;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sun.security.pkcs11.wrapper.Functions;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -40,14 +41,17 @@ import static br.com.sinergia.functions.functions.toBoo;
 
 public class LoginController implements Initializable {
 
-    final String keyPath = "HKLM\\Software\\Sinergia\\DBAlias\\Produção\\";
+    final String keyPath = "HKLM\\Software\\Sinergia\\DBAlias\\Producao\\";
+    int tentativa = 0;
     String versãoExec = "1.0.0";
     DBConn conex;
 
     @FXML
     private AnchorPane PaneLogin;
     @FXML
-    private TextField TxtLogin, TxtSenha;
+    private JFXTextField TxtLogin;
+    @FXML
+    private JFXPasswordField TxtSenha;
     @FXML
     private Button BtnAcessar;
 
@@ -75,7 +79,13 @@ public class LoginController implements Initializable {
         BtnAcessar.setOnAction((ActionEvent evt) -> {
             autenticarLogin();
         });
-        PaneLogin.setOnKeyReleased(e -> {
+        TxtSenha.setOnKeyReleased(evt-> {
+            if(evt.getCode() == KeyCode.CAPS) {
+                TxtSenha.setFocusColor((Paint)0x4059a9ff);
+            }
+        });
+        System.out.println("Cor: " + TxtSenha.getFocusColor());
+        /*PaneLogin.setOnKeyReleased(e -> {
             if (e.getCode() == KeyCode.CAPS) {
                 isCapsLocked = !isCapsLocked;
                 getCaseSensitive(isCapsLocked, TxtSenha.isFocused());
@@ -88,15 +98,19 @@ public class LoginController implements Initializable {
             } else {
                 getCaseSensitive(isCapsLocked, false);
             }
-        });
+        });*/
     }
 
-    private void catchInfoLogin() {
+    private Boolean validLogin() {
         try {
             if (TxtLogin.getText() == null || TxtLogin.getText().equals("")) {
-                throw new Error("Login não pode ser vazio");
+                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null, "Login não pode ser vazio"));
+                ModelDialog.getDialog().raise();
+                return false;
             } else if (TxtSenha.getText() == null || TxtSenha.getText().equals("")) {
-                throw new Error("Senha não pode ser vazia");
+                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null, "Senha não pode ser vazia"));
+                ModelDialog.getDialog().raise();
+                return false;
             }
             if (tryConectDB()) {
                 conex = new DBConn(this.getClass(), true, "SELECT COUNT(1) FROM TSIUSU WHERE LOGIN = ?");
@@ -108,7 +122,7 @@ public class LoginController implements Initializable {
                     ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
                             "Usuário não encontrado para login digitado"));
                     ModelDialog.getDialog().raise();
-                    return;
+                    return false;
                 } //Se continuou, é porque o usuário existe.
                 conex = new DBConn(this.getClass(), false, "SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,\n" +
                         "GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ " +
@@ -143,11 +157,11 @@ public class LoginController implements Initializable {
                         conex.rs.getString("RAZAOSOCIAL"),
                         conex.rs.getString("CNPJ")));
             }
-        } catch (Error ex) {
-            ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null, ex.getMessage()));
-        } catch (Exception ex) {
-            ModelException.setNewException(new ModelException(this.getClass(), null, ex.getMessage(), ex));
+            return true;
+        } catch (SQLException ex) {
+            ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar comunicar com Banco de Dados\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
+            return false;
         } finally {
             conex.desconecta();
         }
@@ -157,17 +171,153 @@ public class LoginController implements Initializable {
         String ip = ReadRegedit.readRegistry(keyPath, "IP");
         String port = ReadRegedit.readRegistry(keyPath, "Port");
         String user = ReadRegedit.readRegistry(keyPath, "User");
-        String password = ReadRegedit.readRegistry(keyPath, "Password");
+        String password = uncryptPass(ReadRegedit.readRegistry(keyPath, "Password"));
         try {
+            DatabaseConf.setDatabaseConf(ip, port, user, password);
             DBConn conex = new DBConn(this.getClass(), true, 2,
                     "SELECT 1 FROM DUAL");
             conex.createSet();
             return true;
         } catch (SQLException ex) {
-            throw new SQLException("Erro ao tentar estabelecer conexão com banco de dados\n" + ex + "\n" +
+            ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar estabelecer conexão com banco de dados\n" + ex + "\n" +
                     "Caminho: jdbc:oracle:thin:@" + ip + ":" + port + "\n" +
                     "Usuário: " + user + "\n" +
-                    "Senha: (Criptografado)", ex);
+                    "Senha: (Criptografado)", ex));
+            ModelException.getDialog().raise();
+            return false;
+        }
+    }
+
+    private void autenticarLogin() {
+        if (validLogin()) {
+            try {
+                if (tentativa < 4) tentativa++;
+                if (tentativa == 4) {
+                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
+                            null,
+                            "Tentativa de login excedida. Máquina bloqueada."));
+                    ModelDialog.getDialog().raise();
+                    return;
+                }
+                if (User.getCurrent().getAtivo() == false) {
+                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
+                            null,
+                            "Usuário não está ativo, não pode acessar o sistema"));
+                    ModelDialog.getDialog().raise();
+                    return;
+                }
+                if (!User.getCurrent().getSenhaUsu().equals(User.getCurrent().getCryptSenha())) {
+                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
+                            null,
+                            "Senha digitada inválida"));
+                    ModelDialog.getDialog().raise();
+                    return;
+                }
+                registraSessao();
+                Tela telaPrincipal = Telas.getByCod(1);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(telaPrincipal.getFounder()));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle(telaPrincipal.getDescrTela() + "(" + User.getCurrent().getCodUsu() + " - " +
+                        User.getCurrent().getLoginUsu() + ")");
+                stage.getIcons().add(new Image("/br/com/sinergia/properties/images/Icone_Sistema.png"));
+                stage.show();
+                stage.setOnCloseRequest(e -> {
+                    ModelDialogButton.setDialogButton(new ModelDialogButton(this.getClass(),
+                            null,
+                            "Deseja realmente sair do sistema?"));
+                    ButtonType[] Btns = new ButtonType[2];
+                    Btns[0] = new ButtonType("Sim");
+                    Btns[1] = new ButtonType("Não");
+                    ModelDialogButton.getDialogButton().createButton(Btns);
+                    if (ModelDialogButton.getDialogButton().returnChoosed() == Btns[1]) { //Não sair
+                        e.consume();
+                    } else {
+                        String arqFecha = null;
+                        if (AppInfo.getMainTabPane().getTabs().size() > 1) {
+                            arqFecha = CtrlArquivos.busca(User.getCurrent().getCodUsu(), "Finalizar com telas pendetes");
+                            if (arqFecha == null || arqFecha.equals("P")) { //Não existe registro ainda ou perguntar
+                                ModelDialogButton.setDialogButton(new ModelDialogButton(this.getClass(),
+                                        null,
+                                        "O sistema detectou que existem telas abertas\n" +
+                                                "Caso algumas dessas telas estejam com alteração pendente, as alterações serão desfeitas\n" +
+                                                "Dejesa realmente sair ou revisar as telas?"));
+                                CheckBox ckb = new CheckBox("Não perguntar novamente?");
+                                ModelDialogButton.getDialogButton().addCheckBox(ckb);
+                                Btns[0] = new ButtonType("Sair");
+                                Btns[1] = new ButtonType("Revisar");
+                                ModelDialogButton.getDialogButton().createButton(Btns);
+                                if (ModelDialogButton.getDialogButton().returnChoosed() == Btns[0]) {
+                                    if (ckb.isSelected()) {
+                                        CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Finalizar com telas pendentes", "S");
+                                    }
+                                    User.getCurrent().closeSessao();
+                                } else {
+                                    if (ckb.isSelected()) {
+                                        CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Finalizar com telas pendentes", "N");
+                                    }
+                                    e.consume();
+                                }
+                            }
+                        } else {
+                            if (arqFecha.equals("S")) {
+                                User.getCurrent().closeSessao();
+                            } else if (arqFecha.equals("N")) {
+                                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING,
+                                        this.getClass(),
+                                        null,
+                                        "Existem telas ainda abertas, finalize-as primeiro"));
+                                ModelDialog.getDialog().raise();
+                                e.consume();
+                            } else {
+                                System.err.println("arqFecha not programmed: " + arqFecha);
+                            }
+                        }
+                    }
+                });
+                Stage stage_old = (Stage) TxtLogin.getScene().getWindow();
+                stage_old.close();
+            } catch (Exception ex) {
+                ModelException Error = new ModelException(this.getClass(), null, ex.getMessage() + "\n" + ex, ex);
+                Error.raise();
+            }
+        }
+
+    }
+
+    private String uncryptPass(String StringByted) {
+        ArrayList<String> ArrayCryptPass = new ArrayList<String>(Arrays.asList(StringByted.split("-")));
+        String DBPassword = "";
+        for (String CryptPass : ArrayCryptPass) {
+            CryptPass = CryptPass.trim();
+            char UnByted = (char) Integer.parseInt(CryptPass, 2);
+            DBPassword = DBPassword + UnByted;
+        }
+        return DBPassword;
+    }
+
+    private void registraSessao() throws Exception {
+        try {
+            conex = new DBConn(this.getClass(), false, "SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL");
+            conex.addParameter(User.getCurrent().getCodUsu());
+            conex.createSet();
+            conex.rs.next();
+            User.getCurrent().setCodSessão(conex.rs.getInt(1));
+            conex = new DBConn(this.getClass(), false,
+                    "INSERT INTO TSISES\n"
+                            + "(CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n"
+                            + "VALUES\n"
+                            + "(?, ?, ?, ?, ?, ?)");
+            conex.addParameter(User.getCurrent().getCodSessão());
+            conex.addParameter(User.getCurrent().getCodUsu());
+            conex.addParameter(java.sql.Timestamp.from(java.time.Instant.now()));
+            conex.addParameter(ComputerInfo.getIPMáquina());
+            conex.addParameter(ComputerInfo.getNomeMáquina());
+            conex.addParameter(AppInfo.getVersaoExec());
+            conex.run();
+        } catch (Exception ex) {
+            throw new Exception("Erro ao tentar registrar sessão\n" + ex.getMessage(), ex);
         }
     }
 
@@ -182,165 +332,14 @@ public class LoginController implements Initializable {
         }
     }
 
-    private void autenticarLogin() {
-        try {
-            catchInfoLogin();
-            if (noError) {
-                if (tentativa < 4) {
-                    tentativa = tentativa + 1;
-                }
-                if (tentativa == 4) {
-                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
-                            null,
-                            "Tentativa de login excedida. Máquina bloqueada."));
-                    ModelDialog.getDialog().raise();
-                    return;
-                } else if (User.getCurrent().getAtivo() == false) {
-                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
-                            null,
-                            "Usuário não está ativo, não pode acessar o sistema"));
-                    ModelDialog.getDialog().raise();
-                    return;
-                } else if (!User.getCurrent().getSenhaUsu().equals(User.getCurrent().getCryptSenha())) {
-                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(),
-                            null,
-                            "Senha digitada inválida"));
-                    ModelDialog.getDialog().raise();
-                    return;
-                } else {
-                    try {
-                        RegistraSessão();
-                        if (noError) {
-                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/br/com/sinergia/views/Principal.fxml"));
-                            Parent root1 = (Parent) fxmlLoader.load();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(root1));
-                            stage.setTitle("Sistema Sinergia ( " + User.getCurrent().getCódUsu() + " - " + User.getCurrent().getLoginUsu() + " )");
-                            stage.getIcons().add(new Image("/br/com/sinergia/properties/images/Icone_Sistema.png"));
-                            stage.setMaximized(true);
-                            stage.show();
-                            stage.setOnCloseRequest(e -> {
-                                ModelDialogButton.setDialogButton(new ModelDialogButton(this.getClass(),
-                                        null,
-                                        "Deseja realmente sair do sistema?"));
-                                ButtonType[] Btns = new ButtonType[2];
-                                Btns[0] = new ButtonType("Sim");
-                                Btns[1] = new ButtonType("Não");
-                                ModelDialogButton.getDialogButton().createButton(Btns);
-                                if (ModelDialogButton.getDialogButton().returnChoosed() == Btns[1]) { //Não sair
-                                    e.consume();
-                                } else {
-                                    if (AppObjects.getAppObjects().getAbaPane().getTabs().size() > 1) { //Sair
-                                        String arqFecha = ctrlArquivos.Busca(User.getCurrent().getCódUsu(), "Finalizar com telas pendentes");
-                                        if (arqFecha.equals("0") || arqFecha.equals("P")) {//Não existe registro ainda ou perguntar
-                                            ModelDialogButton.setDialogButton(new ModelDialogButton(this.getClass(),
-                                                    null,
-                                                    "O sistema detectou que existem telas abertas\n" +
-                                                            "Caso algumas dessas telas estejam com alteração pendente, as alterações serão desfeitas\n" +
-                                                            "Dejesa realmente sair ou revisar as telas?"));
-                                            CheckBox Ckb = new CheckBox("Não perguntar novamente?");
-                                            Ckb.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-                                            ModelDialogButton.getDialogButton().addCheckBox(Ckb);
-                                            Btns[0] = new ButtonType("Sair");
-                                            Btns[1] = new ButtonType("Revisar");
-                                            ModelDialogButton.getDialogButton().createButton(Btns);
-                                            if (ModelDialogButton.getDialogButton().returnChoosed() == Btns[0]) {
-                                                if (Ckb.isSelected()) {
-                                                    ctrlArquivos.Registra(User.getCurrent().getCódUsu(), "Finalizar com telas pendentes", "S");
-                                                }
-                                                User.getCurrent().closeSessão();
-                                            } else {
-                                                if (Ckb.isSelected()) {
-                                                    ctrlArquivos.Registra(User.getCurrent().getCódUsu(), "Finalizar com telas pendentes", "N");
-                                                }
-                                                e.consume();
-                                            }
-                                        } else {
-                                            if (arqFecha.equals("S")) {
-                                                //Apenas fecha
-                                                User.getCurrent().closeSessão();
-                                            } else if (arqFecha.equals("N")) {
-                                                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING,
-                                                        this.getClass(),
-                                                        null,
-                                                        "Existem telas ainda abertas, finalize-as primeiro"));
-                                                ModelDialog.getDialog().raise();
-                                                e.consume();
-                                            } else {
-                                                System.err.println("arqFecha not programmed: " + arqFecha);
-                                            }
-                                        }
-                                    } else {
-                                        User.getCurrent().closeSessão();
-                                    }
-                                }
-                            });
-                            Stage stage_old = (Stage) TxtLogin.getScene().getWindow();
-                            stage_old.close();
-                        }
-                    } catch (Exception ex) {
-                        noError = false;
-                        ModelException Error = new ModelException(this.getClass(), null, "Erro ao tentar inicializar tela principal\n"
-                                + ex.getMessage(), ex);
-                        Error.raise();
-                    }
-                }
-            }
+    private void getCaseSensitive(Boolean isCapsOn, Boolean isFocused) {
+        if (isFocused && isCapsOn) {
+            TxtSenha.setStyle("-fx-border-color: OrangeRed;");
+            TxtSenha.setTooltip(new Tooltip("CapsLock Ativado"));
+        } else {
+            TxtSenha.setStyle("-fx-border-color: null;");
+            TxtSenha.setTooltip(null);
         }
-
-        private String uncryptPass (String StringByted){
-            ArrayList<String> ArrayCryptPass = new ArrayList<String>(Arrays.asList(StringByted.split("-")));
-            String DBPassword = "";
-            for (String CryptPass : ArrayCryptPass) {
-                CryptPass = CryptPass.trim();
-                char UnByted = (char) Integer.parseInt(CryptPass, 2);
-                DBPassword = DBPassword + UnByted;
-            }
-            return DBPassword;
-        }
-
-        private void RegistraSessão () {
-            try {
-                statement = new Statement("SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL");
-                statement.addParameter(User.getCurrent().getCódUsu());
-                statement.createSet();
-                statement.rs.next();
-                User.getCurrent().setCódSessão(statement.rs.getInt("SESSAO"));
-                statement = new Statement("INSERT INTO TSISES\n"
-                        + "(CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n"
-                        + "VALUES\n"
-                        + "(?, ?, ?, ?, ?, ?)");
-                statement.addParameter(User.getCurrent().getCódSessão());
-                statement.addParameter(User.getCurrent().getCódUsu());
-                statement.addParameter(java.sql.Timestamp.from(java.time.Instant.now()));
-                statement.addParameter(AppInfo.getInfo().getIPMáquina());
-                statement.addParameter(AppInfo.getInfo().getNomeMáquina());
-                statement.addParameter(AppInfo.getInfo().getVersãoExec());
-                statement.run();
-            } catch (SQLException ex) {
-                noError = false;
-                ModelException.setNewException(new ModelException(this.getClass(), null,
-                        "Erro ao tentar registrar sessão\n" + ex.getMessage() + "\nA aplicação será finalizada.", ex));
-                ModelException.getException().raise();
-                System.exit(0);
-            } catch (Exception ex) {
-                noError = false;
-                ModelException.setNewException(new ModelException(this.getClass(), null,
-                        "Erro ao tentar registrar sessão\n" + ex.getMessage() + "\nA aplicação será finalizada.", ex));
-                ModelException.getException().raise();
-                System.exit(0);
-            }
-        }
-
-        private void getCaseSensitive (Boolean isCapsOn, Boolean isFocused){
-            if (isFocused && isCapsOn) {
-                TxtSenha.setStyle("-fx-border-color: OrangeRed;");
-                TxtSenha.setTooltip(new Tooltip("CapsLock Ativado"));
-            } else {
-                TxtSenha.setStyle("-fx-border-color: null;");
-                TxtSenha.setTooltip(null);
-            }
-        }
-
     }
+
 }

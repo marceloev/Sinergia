@@ -1,5 +1,6 @@
 package br.com.sinergia.views.dialogs;
 
+import javafx.geometry.NodeOrientation;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -62,12 +63,13 @@ public class ModelDialogButton {
         Alerta.getButtonTypes().addAll(BtnTypes);
     }
 
-    public void addCheckBox(CheckBox Ckb) {
+    public void addCheckBox(CheckBox ckb) {
+        ckb.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         Node graphic = Alerta.getDialogPane().getGraphic();
         Alerta.setDialogPane(new DialogPane() {
             @Override
             protected Node createDetailsButton() {
-                return Ckb;
+                return ckb;
             }
         });
         Alerta.getDialogPane().setExpandableContent(new Group());

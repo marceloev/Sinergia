@@ -12,7 +12,7 @@ public class DBConnModel {
         setInvoker(invoker);
         setHide(hide);
         setExpires(expires);
-        setTimeOutExpire(getTimeOutExpire());
+        setTimeOutExpire(secTimeOut);
     }
 
     public Boolean getHide() {

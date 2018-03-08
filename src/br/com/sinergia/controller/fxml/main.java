@@ -24,6 +24,7 @@ public class main extends Application {
             primaryStage.getIcons().add(new Image("/br/com/sinergia/views/images/Icone_Sistema.png"));
             primaryStage.setTitle(tela.getDescrTela());
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
             primaryStage.setX((screenBounds.getWidth() - primaryStage.getWidth()) / 2);
