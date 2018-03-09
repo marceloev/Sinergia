@@ -1,9 +1,13 @@
 package br.com.sinergia.functions;
 
+import br.com.sinergia.models.statics.AppInfo;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -40,11 +44,32 @@ public class functions {
     }
 
     public static Boolean toBoo(Integer valor) {
-        if(valor.equals(1)) return true;
+        if (valor.equals(1)) return true;
         else return false;
     }
 
     public static Integer getOnlyNumber(String valor) {
         return Integer.valueOf(valor.replaceAll("[^0-9]", ""));
+    }
+
+    public static StringBuilder arrayParameter(ArrayList Array) {
+        StringBuilder parameterBuilder = new StringBuilder();
+        parameterBuilder.append("(");
+        for (int i = 0; i < Array.size(); i++) {
+            parameterBuilder.append("?");
+            if (Array.size() > i + 1) {
+                parameterBuilder.append(",");
+            }
+        }
+        parameterBuilder.append(")");
+        return parameterBuilder;
+
+    }
+
+    public static void setLayoutPane(Pane paneToRezise) {
+        Platform.runLater(() -> {
+            paneToRezise.prefWidthProperty().bind(AppInfo.getMainTabPane().widthProperty().subtract(5));
+            paneToRezise.prefHeightProperty().bind(AppInfo.getMainTabPane().heightProperty().subtract(30));
+        });
     }
 }

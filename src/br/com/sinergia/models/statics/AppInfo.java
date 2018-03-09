@@ -2,12 +2,15 @@ package br.com.sinergia.models.statics;
 
 import javafx.scene.control.TabPane;
 
+import java.util.ArrayList;
+
 public class AppInfo {
 
     private static String versaoExec;
     private static String versaoDB;
     private static String arqTelasFav;
     private static TabPane mainTabPane;
+    private static ArrayList<String> tabPanes = new ArrayList<>();
 
     public static String getVersaoExec() {
         return versaoExec;
@@ -40,4 +43,15 @@ public class AppInfo {
     public static void setMainTabPane(TabPane mainTabPane) {
         AppInfo.mainTabPane = mainTabPane;
     }
+
+    public static ArrayList<String> getTabPanes() {
+        return tabPanes;
+    }
+
+    public static void setTabPanes(ArrayList<String> tabPanes) {
+        AppInfo.tabPanes = tabPanes;
+    }
+
+    public void addPane() {};
+
 }
