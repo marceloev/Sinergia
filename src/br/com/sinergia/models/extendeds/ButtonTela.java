@@ -1,6 +1,7 @@
 package br.com.sinergia.models.extendeds;
 
 import br.com.sinergia.database.conector.DBConn;
+import br.com.sinergia.functions.CtrlArquivos;
 import br.com.sinergia.functions.functions;
 import br.com.sinergia.models.statics.AppInfo;
 import br.com.sinergia.models.usage.User;
@@ -68,14 +69,22 @@ public class ButtonTela extends Button {
             ModelException.getDialog().raise();
         }
         try {
-            this.setOnMouseClicked(mouse ->{
-                if(mouse.getButton() == mouse.getButton().SECONDARY) {
-                    //if(AppInfo.getvBoxFavoritos().getChildren())
+            this.setOnMouseClicked(mouse -> {
+                if (mouse.getButton() == mouse.getButton().SECONDARY) {
+                    if (AppInfo.getStrTelasFav().contains(this.getDescrTela())) { //Já existe, então remove
+                        AppInfo.getStrTelasFav().remove(this.getDescrTela());
+                        AppInfo.getvBoxFavoritos().getChildren().remove(this);
+                    } else {
+                        AppInfo.getStrTelasFav().add(this.getDescrTela());
+                        AppInfo.getvBoxFavoritos().getChildren().add(this);
+                    }
+                    //Atentar se não está saindo com [], ex: [Locais, Produtos], causando erro.
+                    CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Telas Favoritas", AppInfo.getStrTelasFav().toString());
                 }
             });
         } catch (Exception ex) {
             ModelException.setNewException(new ModelException(this.getClass(), null,
-                    "Erro ao tentar registrar favoritar tela: " + this.getDescrTela() +"\n" +ex.getMessage(), ex));
+                    "Erro ao tentar registrar favoritar tela: " + this.getDescrTela() + "\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
         }
     }

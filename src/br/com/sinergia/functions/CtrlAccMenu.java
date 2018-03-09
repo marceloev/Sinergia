@@ -8,7 +8,6 @@ import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelException;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
