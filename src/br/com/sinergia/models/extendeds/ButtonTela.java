@@ -1,7 +1,9 @@
 package br.com.sinergia.models.extendeds;
 
+import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.functions;
 import br.com.sinergia.models.statics.AppInfo;
+import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelException;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
-
-import java.io.IOException;
 
 public class ButtonTela extends Button {
 
@@ -41,15 +41,14 @@ public class ButtonTela extends Button {
                             AppInfo.getTabPanes().indexOf(this.getDescrTela()) + 1); // Para expandir a Aba
                 } else {
                     try {
-                        //lançaRegistro(Tela);
+                        gravaRegistro(this.getDescrTela());
                         Tab tela = new Tab(this.getDescrTela());
                         tela.setTooltip(new Tooltip(this.getPath() + " > " + this.getDescrTela()));
                         tela.setOnCloseRequest(close -> {
                             AppInfo.getTabPanes().remove(this.getDescrTela());
                         });
                         FXMLLoader FXMLloader = new FXMLLoader(getClass().getResource(this.getFounder()));
-                        Parent frame = null;
-                        frame = FXMLloader.load();
+                        Parent frame = FXMLloader.load();
                         tela.setContent(frame);
                         AppInfo.getMainTabPane().getTabs().add(tela);
                         AppInfo.getTabPanes().add(this.getDescrTela());
@@ -66,6 +65,38 @@ public class ButtonTela extends Button {
             //Não precisa tratar o TabAbertas pois, ele add, se houver, substitui.
             ModelException.setNewException(new ModelException(this.getClass(), null,
                     "Erro ao tentar exibir tela: " + this.getDescrTela() + "\n" + ex.getMessage(), ex));
+            ModelException.getDialog().raise();
+        }
+        try {
+            this.setOnMouseClicked(mouse ->{
+                if(mouse.getButton() == mouse.getButton().SECONDARY) {
+                    //if(AppInfo.getvBoxFavoritos().getChildren())
+                }
+            });
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(this.getClass(), null,
+                    "Erro ao tentar registrar favoritar tela: " + this.getDescrTela() +"\n" +ex.getMessage(), ex));
+            ModelException.getDialog().raise();
+        }
+    }
+
+    private void gravaRegistro(String tela) {
+        DBConn conex;
+        try {
+            conex = new DBConn(this.getClass(),
+                    "INSERT INTO TSIREG\n" +
+                            "(CODREG, CODUSU, CODSESSAO, DHACESSO, TELA)\n" +
+                            "VALUES\n" +
+                            "(GET_CODREG(?), ?, ?, ?, ?)");
+            conex.addParameter(User.getCurrent().getCodUsu());
+            conex.addParameter(User.getCurrent().getCodUsu());
+            conex.addParameter(User.getCurrent().getCodSessão());
+            conex.addParameter(java.sql.Timestamp.from(java.time.Instant.now()));
+            conex.addParameter(tela);
+            conex.run();
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(this.getClass(), null,
+                    "Erro ao tentar gravar registro: " + tela + "\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
         }
     }
