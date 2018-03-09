@@ -78,7 +78,7 @@ public class DBConn {
     public void createSet() throws SQLException {
         long time = System.currentTimeMillis();
         this.rs = pst.executeQuery();
-        if (!connection.getExpires()) {
+        if (!connection.getHide()) {
             time = System.currentTimeMillis() - time;
             GravaLog.gravaInfo(this.getClass(), "DB SourceConnection: ResulSet criado em " + time + " milisegundo(s)");
         }

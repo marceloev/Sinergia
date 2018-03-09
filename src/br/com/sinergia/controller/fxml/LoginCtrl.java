@@ -175,7 +175,7 @@ public class LoginCtrl implements Initializable {
         String password = uncryptPass(ReadRegedit.readRegistry(keyPath, "Password"));
         try {
             DatabaseConf.setDatabaseConf(ip, port, user, password);
-            DBConn conex = new DBConn(this.getClass(), true, 2,
+            DBConn conex = new DBConn(this.getClass(), false, 2,
                     "SELECT 1 FROM DUAL");
             conex.createSet();
             return true;
