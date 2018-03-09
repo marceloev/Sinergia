@@ -1,6 +1,7 @@
 package br.com.sinergia.models.extendeds;
 
 import br.com.sinergia.database.conector.DBConn;
+import br.com.sinergia.functions.CtrlAccMenu;
 import br.com.sinergia.functions.CtrlArquivos;
 import br.com.sinergia.functions.functions;
 import br.com.sinergia.models.statics.AppInfo;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 public class ButtonTela extends Button {
@@ -31,6 +33,9 @@ public class ButtonTela extends Button {
         setFounder(founder);
         Platform.runLater(() -> {
             addEvents();
+            if(CtrlAccMenu.favArquivoIni.contains(this.getDescrTela())) {
+                setFavoriteEvent();
+            }
         });
     }
 
@@ -71,15 +76,7 @@ public class ButtonTela extends Button {
         try {
             this.setOnMouseClicked(mouse -> {
                 if (mouse.getButton() == mouse.getButton().SECONDARY) {
-                    if (AppInfo.getStrTelasFav().contains(this.getDescrTela())) { //Já existe, então remove
-                        AppInfo.getStrTelasFav().remove(this.getDescrTela());
-                        AppInfo.getvBoxFavoritos().getChildren().remove(this);
-                    } else {
-                        AppInfo.getStrTelasFav().add(this.getDescrTela());
-                        AppInfo.getvBoxFavoritos().getChildren().add(this);
-                    }
-                    //Atentar se não está saindo com [], ex: [Locais, Produtos], causando erro.
-                    CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Telas Favoritas", AppInfo.getStrTelasFav().toString());
+                    setFavoriteEvent();
                 }
             });
         } catch (Exception ex) {
@@ -87,6 +84,18 @@ public class ButtonTela extends Button {
                     "Erro ao tentar registrar favoritar tela: " + this.getDescrTela() + "\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
         }
+    }
+
+    private void setFavoriteEvent() {
+        if (AppInfo.getStrTelasFav().contains(this.getDescrTela())) { //Já existe, então remove
+            AppInfo.getStrTelasFav().remove(this.getDescrTela());
+            AppInfo.getvBoxFavoritos().getChildren().remove(this);
+        } else {
+            AppInfo.getStrTelasFav().add(this.getDescrTela());
+            AppInfo.getvBoxFavoritos().getChildren().add(this);
+        }
+        //Atentar se não está saindo com [], ex: [Locais, Produtos], causando erro.
+        CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Telas Favoritas", AppInfo.getStrTelasFav().toString());
     }
 
     private void gravaRegistro(String tela) {

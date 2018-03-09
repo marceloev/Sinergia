@@ -22,6 +22,7 @@ public class CtrlAccMenu {
 
     DBConn conex;
     private Accordion accordion;
+    public static String favArquivoIni = CtrlArquivos.busca(User.getCurrent().getCodUsu(), "Telas Favoritas");
 
     public CtrlAccMenu(Accordion accMenu) {
         accordion = accMenu;
