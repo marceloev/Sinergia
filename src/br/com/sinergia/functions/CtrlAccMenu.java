@@ -3,6 +3,7 @@ package br.com.sinergia.functions;
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.frames.Tela;
 import br.com.sinergia.functions.frames.Telas;
+import br.com.sinergia.functions.log.GravaLog;
 import br.com.sinergia.models.extendeds.ButtonTela;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelException;
@@ -16,13 +17,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static br.com.sinergia.functions.functions.*;
+import static br.com.sinergia.functions.functions.arrayParameter;
+import static br.com.sinergia.functions.functions.toBoo;
 
 public class CtrlAccMenu {
 
+    public static String favArquivoIni = CtrlArquivos.busca(User.getCurrent().getCodUsu(), "Telas Favoritas");
     DBConn conex;
     private Accordion accordion;
-    public static String favArquivoIni = CtrlArquivos.busca(User.getCurrent().getCodUsu(), "Telas Favoritas");
 
     public CtrlAccMenu(Accordion accMenu) {
         accordion = accMenu;
@@ -42,7 +44,7 @@ public class CtrlAccMenu {
             for (String menu : mapMenu.keySet()) {
                 idx++;
                 VBox vBox = new VBox();
-                vBox.setSpacing(1);
+                vBox.setSpacing(2);
                 ttpMenu[idx] = new TitledPane(menu, vBox);
                 ImageView IconeMenu = new ImageView("/br/com/sinergia/views/images/" + menu + ".png");
                 IconeMenu.setFitHeight(32); //Redimensiona a imagem para 32x32
@@ -71,30 +73,29 @@ public class CtrlAccMenu {
 
     private void getAcessosMenu(ArrayList<Tela> arrayTelas, Integer codPerfil) throws SQLException, Error {
         ArrayList<Integer> codTelas = new ArrayList<>();
-        ArrayList<String> nomeTelasSearch = new ArrayList<>();
-        ArrayList<String> nomeTelasNotFound = new ArrayList<>();
-        int index = 0;
         arrayTelas.forEach(tela -> {
             codTelas.add(tela.getCodTela());
-            nomeTelasSearch.add(tela.getDescrTela());
-            nomeTelasNotFound.add(tela.getDescrTela());
         });
-        conex = new DBConn(this.getClass(), true,
-                "SELECT VISUALIZA FROM TSIPER WHERE CODTELA IN " + arrayParameter(codTelas) + " AND CODPERFIL = ?");
+        conex = new DBConn(this.getClass(), false,
+                "SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN " + arrayParameter(codTelas) + " AND CODPERFIL = ?");
         conex.addParameter(codTelas);
         conex.addParameter(codPerfil);
         conex.createSet();
         while (conex.rs.next()) {
-            Boolean visualiza = toBoo(conex.rs.getString(1));
-            if (!visualiza) arrayTelas.remove(index);
-            nomeTelasNotFound.remove(index);
-            index++;
+            Boolean visualiza = toBoo(conex.rs.getString(2));
+            int tela = conex.rs.getInt(1);
+            if (!visualiza) {
+                arrayTelas.remove(Telas.getByCod(tela));
+                codTelas.remove(tela);
+            }
         }
-        if (index != codTelas.size()) {
-            throw new Error("Erro ao tentar mapear acessos do usuário\n" +
-                    "Foram buscadas: " + nomeTelasSearch.toString() + "\n" +
-                    "Não foram encontradas: " + nomeTelasNotFound.toString());
-        }
+        /*if(!codTelas.isEmpty()) { //As permissões não encontradas, serão tratadas como não visualiza.
+            GravaLog.gravaAlerta(this.getClass(), "Algumas telas não foram encontradas na tabela de permissão\n" +
+                    "Serão tratadas como não disponível ao usuário");
+            for(int idx: codTelas) {
+                arrayTelas.remove(Telas.getByCod(idx));
+            }
+        }*/
     }
 
 }

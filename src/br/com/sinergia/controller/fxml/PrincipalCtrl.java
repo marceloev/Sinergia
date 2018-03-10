@@ -1,18 +1,17 @@
 package br.com.sinergia.controller.fxml;
 
-import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.CtrlAccMenu;
 import br.com.sinergia.models.statics.AppInfo;
-import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class PrincipalCtrl extends Application {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    DBConn conex;
+public class PrincipalCtrl implements Initializable {
 
     @FXML
     private Accordion accMenus;
@@ -22,7 +21,7 @@ public class PrincipalCtrl extends Application {
     private VBox VBoxFavoritos, VBoxRecentes;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void initialize(URL location, ResourceBundle resources) {
         estrutura();
     }
 
@@ -31,6 +30,5 @@ public class PrincipalCtrl extends Application {
         AppInfo.setvBoxFavoritos(VBoxFavoritos);
         AppInfo.setvBoxRecentes(VBoxRecentes);
         new CtrlAccMenu(accMenus);
-
     }
 }

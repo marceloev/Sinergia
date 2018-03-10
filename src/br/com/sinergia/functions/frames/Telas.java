@@ -37,7 +37,7 @@ public class Telas {
                 Boolean isFrame = toBoo(element.getElementsByTagName("isFrame").item(0).getTextContent());
                 String founder = element.getElementsByTagName("founder").item(0).getTextContent();
                 getTelas().add(new Tela(codTela, descrTela, pathTela, isFrame, founder));
-                if(!getMenus().contains(pathTela)) getMenus().add(pathTela);
+                if(!pathTela.equals("null") && !getMenus().contains(pathTela)) getMenus().add(pathTela);
             }
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             throw new Error(ex);

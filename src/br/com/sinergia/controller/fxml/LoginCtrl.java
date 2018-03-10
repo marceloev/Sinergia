@@ -220,10 +220,11 @@ public class LoginCtrl implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(telaPrincipal.getFounder()));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
+                stage.setMaximized(true);
                 stage.setScene(new Scene(root));
                 stage.setTitle(telaPrincipal.getDescrTela() + "(" + User.getCurrent().getCodUsu() + " - " +
                         User.getCurrent().getLoginUsu() + ")");
-                stage.getIcons().add(new Image("/br/com/sinergia/properties/images/Icone_Sistema.png"));
+                stage.getIcons().add(new Image("/br/com/sinergia/views/images/Icone_Sistema.png"));
                 stage.show();
                 stage.setOnCloseRequest(e -> {
                     ModelDialogButton.setDialogButton(new ModelDialogButton(this.getClass(),
@@ -261,19 +262,19 @@ public class LoginCtrl implements Initializable {
                                     }
                                     e.consume();
                                 }
-                            }
-                        } else {
-                            if (arqFecha.equals("S")) {
-                                User.getCurrent().closeSessao();
-                            } else if (arqFecha.equals("N")) {
-                                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING,
-                                        this.getClass(),
-                                        null,
-                                        "Existem telas ainda abertas, finalize-as primeiro"));
-                                ModelDialog.getDialog().raise();
-                                e.consume();
                             } else {
-                                System.err.println("arqFecha not programmed: " + arqFecha);
+                                if (arqFecha.equals("S")) {
+                                    User.getCurrent().closeSessao();
+                                } else if (arqFecha.equals("N")) {
+                                    ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING,
+                                            this.getClass(),
+                                            null,
+                                            "Existem telas ainda abertas, finalize-as primeiro"));
+                                    ModelDialog.getDialog().raise();
+                                    e.consume();
+                                } else {
+                                    System.err.println("arqFecha not programmed: " + arqFecha);
+                                }
                             }
                         }
                     }
@@ -281,7 +282,7 @@ public class LoginCtrl implements Initializable {
                 Stage stage_old = (Stage) TxtLogin.getScene().getWindow();
                 stage_old.close();
             } catch (Exception ex) {
-                ModelException.setNewException(new ModelException(this.getClass(), null , ex.getMessage(), ex));
+                ModelException.setNewException(new ModelException(this.getClass(), null, ex.getMessage(), ex));
                 ModelException.getDialog().raise();
             }
         }
@@ -306,13 +307,11 @@ public class LoginCtrl implements Initializable {
             conex.createSet();
             conex.rs.next();
             User.getCurrent().setCodSessão(conex.rs.getInt(1));
-            System.out.println("Passou");
             conex = new DBConn(this.getClass(), false,
                     "INSERT INTO TSISES\n"
                             + "(CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n"
                             + "VALUES\n"
                             + "(?, ?, SYSDATE, ?, ?, ?)");
-            System.out.println("Passou2");
             conex.addParameter(User.getCurrent().getCodSessão());
             conex.addParameter(User.getCurrent().getCodUsu());
             conex.addParameter(ComputerInfo.getIPMáquina());

@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.Pane;
 
 public class ButtonTela extends Button {
@@ -31,9 +31,13 @@ public class ButtonTela extends Button {
         setPath(path);
         setFrame(frame);
         setFounder(founder);
+        this.setStyle("-fx-border-color: #696969;" +
+                "-fx-max-width: Infinity;" +
+                "-fx-pref-height: 35;" + //Por algum erro do CSS, se você trocar pref por max, ele não atualiza
+                "-fx-border-color: Silver");
         Platform.runLater(() -> {
             addEvents();
-            if(CtrlAccMenu.favArquivoIni.contains(this.getDescrTela())) {
+            if (CtrlAccMenu.favArquivoIni != null && CtrlAccMenu.favArquivoIni.contains(this.getDescrTela())) {
                 setFavoriteEvent();
             }
         });
@@ -99,7 +103,7 @@ public class ButtonTela extends Button {
     }
 
     private void gravaRegistro(String tela) {
-        DBConn conex;
+        DBConn conex = null;
         try {
             conex = new DBConn(this.getClass(),
                     "INSERT INTO TSIREG\n" +

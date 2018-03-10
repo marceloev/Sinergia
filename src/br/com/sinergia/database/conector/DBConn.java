@@ -132,7 +132,7 @@ public class DBConn {
         }
         String classType = objeto.getClass().getTypeName();
         if (!connection.getHide()) {
-            GravaLog.gravaInfo(connection.getInvoker(), index + "º Parâmetro(" + classType + "): " + objeto);
+            GravaLog.gravaInfo(connection.getInvoker(), index + "º Parâmetro(" + classType + "): " + info);
         }
         addToStatement(index, objeto, classType);
         index++;

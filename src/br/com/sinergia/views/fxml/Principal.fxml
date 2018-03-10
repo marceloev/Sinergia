@@ -24,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<SplitPane fx:id="SplitPanel" dividerPositions="0.5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-color: gray;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.PrincipalCtrl">
+<SplitPane fx:id="SplitPanel" dividerPositions="0.5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-color: gray;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.PrincipalCtrl">
       <items>
           <AnchorPane fx:id="PaneMenu" maxWidth="170.0" minHeight="0.0" minWidth="0.0" prefHeight="796.0" prefWidth="0.0" style="-fx-background-color: White;">
               <children>
@@ -149,19 +149,31 @@
                                                     </graphic>
                                                 </Label>
                                                 <HTMLEditor fx:id="TxtLembrete" layoutX="15.0" layoutY="91.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="586.0" prefWidth="611.0" style="-fx-border-color: gray;" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="91.0" />
-                                                <Label alignment="CENTER" layoutX="632.0" layoutY="60.0" prefHeight="25.0" prefWidth="243.0" text="Telas Favoritas :" underline="true" />
-                                                <Label alignment="CENTER" layoutX="866.0" layoutY="60.0" prefHeight="25.0" prefWidth="230.0" text="Telas Recentes :" underline="true" />
                                                 <Label fx:id="LblDHLembrete" layoutX="15.0" layoutY="71.0" prefHeight="17.0" prefWidth="263.0" text="Data/Hora Alteração: " />
-                                                <VBox fx:id="VBoxFavoritos" alignment="TOP_CENTER" layoutX="632.0" layoutY="91.0" prefHeight="269.0" prefWidth="230.0" spacing="3.0" style="-fx-border-color: gray;" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="91.0">
-                                                    <padding>
-                                                        <Insets left="3.0" top="3.0" />
-                                                    </padding>
-                                    </VBox>
-                                                <VBox fx:id="VBoxRecentes" alignment="TOP_CENTER" layoutX="866.0" layoutY="91.0" prefHeight="269.0" prefWidth="230.0" spacing="3.0" style="-fx-border-color: gray;" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="91.0">
-                                                    <padding>
-                                                        <Insets left="3.0" top="3.0" />
-                                                    </padding>
-                                                </VBox>
+                                    <TitledPane alignment="CENTER" collapsible="false" layoutX="632.0" layoutY="91.0" prefWidth="232.0" text="Telas Favoritas" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="91.0">
+                                       <content>
+                                                      <VBox fx:id="VBoxFavoritos" alignment="TOP_CENTER" prefHeight="269.0" prefWidth="230.0" spacing="3.0" style="-fx-border-color: gray;">
+                                                          <padding>
+                                                              <Insets left="3.0" top="3.0" />
+                                                          </padding>
+                                          </VBox>
+                                       </content>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </TitledPane>
+                                    <TitledPane alignment="CENTER" collapsible="false" layoutX="866.0" layoutY="91.0" text="Telas Recentes" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="91.0">
+                                       <content>
+                                                      <VBox fx:id="VBoxRecentes" alignment="TOP_CENTER" prefHeight="269.0" prefWidth="230.0" spacing="3.0" style="-fx-border-color: gray;">
+                                                          <padding>
+                                                              <Insets left="3.0" top="3.0" />
+                                                          </padding>
+                                                      </VBox>
+                                       </content>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </TitledPane>
                                             </children>
                                         </AnchorPane>
                                     </content>
