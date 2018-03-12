@@ -1,0 +1,9 @@
+.dialog-pane:header *.header-panel *.label{
+    -fx-font-size: 30px;
+    -fx-fill: BLACK;
+	-fx-alignment: CENTER-LEFT;
+}
+.dialog-pane > *.label.content{
+    -fx-font-size: 14px;
+	-fx-alignment: CENTER;
+}

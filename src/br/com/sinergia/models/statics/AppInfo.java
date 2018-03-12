@@ -1,5 +1,6 @@
 package br.com.sinergia.models.statics;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ public class AppInfo {
     private static ArrayList<String> strTelasFav = new ArrayList<>();
     private static VBox vBoxFavoritos;
     private static VBox vBoxRecentes;
+    private static Button btnMensagens;
 
     public static String getVersaoExec() {
         return versaoExec;
@@ -79,6 +81,14 @@ public class AppInfo {
 
     public static void setStageMain(Stage stageMain) {
         AppInfo.stageMain = stageMain;
+    }
+
+    public static Button getBtnMensagens() {
+        return btnMensagens;
+    }
+
+    public static void setBtnMensagens(Button btnMensagens) {
+        AppInfo.btnMensagens = btnMensagens;
     }
 
     public void addPane() {};

@@ -63,6 +63,7 @@ public class PrincipalCtrl implements Initializable {
         AppInfo.setMainTabPane(AbaPane);
         AppInfo.setvBoxFavoritos(VBoxFavoritos);
         AppInfo.setvBoxRecentes(VBoxRecentes);
+        AppInfo.setBtnMensagens(BtnMensagens);
         LblInfoFaixa.setText("Usuário: " + User.getCurrent().getCodUsu() + " - " + User.getCurrent().getNomeUsu() +
                 " x Empresa: " + User.getCurrent().getCodEmp() + " - " + User.getCurrent().getNomeFantasiaEmp());
         LblNomeLembrete.setText("Olá, " + User.getCurrent().getNomeUsu() + "!");
@@ -137,7 +138,7 @@ public class PrincipalCtrl implements Initializable {
                         Lembrete.setUserLembrete(new Lembrete(User.getCurrent().getCodUsu(),
                                 Timestamp.from(Instant.now()),
                                 TxtLembrete.getHtmlText()));
-                        if (Lembrete.getUserLembrete().getLembrete().equals(TxtLembrete.getHtmlText())) {
+                        if (!Lembrete.getUserLembrete().getLembrete().equals(TxtLembrete.getHtmlText())) {
                             //Verificamos isso para certificar que não houve erros na inserção
                             LblDHLembrete.setText("Data/Hora Ult. Alteração: " + formatDate(dataHoraFormater, Lembrete.getUserLembrete().getDhLembrete()));
                         }
