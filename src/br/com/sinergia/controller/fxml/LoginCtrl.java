@@ -178,6 +178,7 @@ public class LoginCtrl implements Initializable {
             DBConn conex = new DBConn(this.getClass(), false, 2,
                     "SELECT 1 FROM DUAL");
             conex.createSet();
+            conex.desconecta();
             return true;
         } catch (SQLException ex) {
             ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar estabelecer conexão com banco de dados\n" + ex + "\n" +
@@ -185,7 +186,7 @@ public class LoginCtrl implements Initializable {
                     "Usuário: " + user + "\n" +
                     "Senha: (Criptografado)", ex));
             ModelException.getDialog().raise();
-            System.out.println("False");
+            conex.desconecta();
             return false;
         }
     }
@@ -214,16 +215,19 @@ public class LoginCtrl implements Initializable {
                             "Senha digitada inválida"));
                     ModelDialog.getDialog().raise();
                     return;
+                } else {
+                    User.getCurrent().setSenhaUsu(TxtSenha.getText());
                 }
                 registraSessao();
                 Tela telaPrincipal = Telas.getByCod(1);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(telaPrincipal.getFounder()));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
+                AppInfo.setStageMain(stage);
                 stage.setMaximized(true);
                 stage.setScene(new Scene(root));
-                stage.setTitle(telaPrincipal.getDescrTela() + "(" + User.getCurrent().getCodUsu() + " - " +
-                        User.getCurrent().getLoginUsu() + ")");
+                stage.setTitle(telaPrincipal.getDescrTela() + " ( " + User.getCurrent().getCodUsu() + " - " +
+                        User.getCurrent().getLoginUsu() + " )");
                 stage.getIcons().add(new Image("/br/com/sinergia/views/images/Icone_Sistema.png"));
                 stage.show();
                 stage.setOnCloseRequest(e -> {
@@ -308,18 +312,18 @@ public class LoginCtrl implements Initializable {
             conex.rs.next();
             User.getCurrent().setCodSessão(conex.rs.getInt(1));
             conex = new DBConn(this.getClass(), false,
-                    "INSERT INTO TSISES\n"
-                            + "(CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n"
-                            + "VALUES\n"
-                            + "(?, ?, SYSDATE, ?, ?, ?)");
+                    "INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)\n" +
+                            "VALUES (?, ?, SYSDATE, ?, ?, ?)");
             conex.addParameter(User.getCurrent().getCodSessão());
             conex.addParameter(User.getCurrent().getCodUsu());
             conex.addParameter(ComputerInfo.getIPMáquina());
             conex.addParameter(ComputerInfo.getNomeMáquina());
-            conex.addParameter(AppInfo.getVersaoExec());
+            conex.addParameter(ComputerInfo.getVersãoExec());
             conex.run();
         } catch (Exception ex) {
             throw new Exception("Erro ao tentar registrar sessão\n" + ex.getMessage());
+        } finally {
+            conex.desconecta();
         }
     }
 

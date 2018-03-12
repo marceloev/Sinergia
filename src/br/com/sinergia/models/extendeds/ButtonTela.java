@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.Pane;
 
 public class ButtonTela extends Button {
@@ -26,6 +25,7 @@ public class ButtonTela extends Button {
 
     public ButtonTela(int codTela, String descrTela, String path, Boolean frame, String founder) {
         super();
+        this.setText(descrTela);
         setCodTela(codTela);
         setDescrTela(descrTela);
         setPath(path);
@@ -33,12 +33,12 @@ public class ButtonTela extends Button {
         setFounder(founder);
         this.setStyle("-fx-border-color: #696969;" +
                 "-fx-max-width: Infinity;" +
-                "-fx-pref-height: 35;" + //Por algum erro do CSS, se você trocar pref por max, ele não atualiza
+                "-fx-pref-height: 35;" + //Por algum erro do CSS, se você trocar PREF por MAX, ele não atualiza
                 "-fx-border-color: Silver");
         Platform.runLater(() -> {
             addEvents();
             if (CtrlAccMenu.favArquivoIni != null && CtrlAccMenu.favArquivoIni.contains(this.getDescrTela())) {
-                setFavoriteEvent();
+                setFavoriteEvent(true);
             }
         });
     }
@@ -80,7 +80,7 @@ public class ButtonTela extends Button {
         try {
             this.setOnMouseClicked(mouse -> {
                 if (mouse.getButton() == mouse.getButton().SECONDARY) {
-                    setFavoriteEvent();
+                    setFavoriteEvent(false);
                 }
             });
         } catch (Exception ex) {
@@ -90,16 +90,23 @@ public class ButtonTela extends Button {
         }
     }
 
-    private void setFavoriteEvent() {
-        if (AppInfo.getStrTelasFav().contains(this.getDescrTela())) { //Já existe, então remove
-            AppInfo.getStrTelasFav().remove(this.getDescrTela());
-            AppInfo.getvBoxFavoritos().getChildren().remove(this);
+    private void setFavoriteEvent(Boolean init) {
+        if (init) {
+            if (CtrlAccMenu.favArquivoIni.contains(this.getDescrTela()) &&
+                    !AppInfo.getStrTelasFav().contains(this.getDescrTela())) {
+                AppInfo.getStrTelasFav().add(this.getDescrTela());
+                AppInfo.getvBoxFavoritos().getChildren().add(new ButtonTela(this.getCodTela(), this.getDescrTela(), this.getPath(), this.isFrame(), this.getFounder()));
+            }
         } else {
-            AppInfo.getStrTelasFav().add(this.getDescrTela());
-            AppInfo.getvBoxFavoritos().getChildren().add(this);
+            if (AppInfo.getStrTelasFav().contains(this.getDescrTela())) {
+                AppInfo.getvBoxFavoritos().getChildren().remove(AppInfo.getvBoxFavoritos().getChildren().get(AppInfo.getStrTelasFav().indexOf(this.getDescrTela())));
+                AppInfo.getStrTelasFav().remove(this.getDescrTela());
+            } else {
+                AppInfo.getvBoxFavoritos().getChildren().add(new ButtonTela(this.getCodTela(), this.getDescrTela(), this.getPath(), this.isFrame(), this.getFounder()));
+                AppInfo.getStrTelasFav().add(this.getDescrTela());
+            }
+            CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Telas Favoritas", AppInfo.getStrTelasFav());
         }
-        //Atentar se não está saindo com [], ex: [Locais, Produtos], causando erro.
-        CtrlArquivos.registra(User.getCurrent().getCodUsu(), "Telas Favoritas", AppInfo.getStrTelasFav().toString());
     }
 
     private void gravaRegistro(String tela) {
@@ -109,17 +116,18 @@ public class ButtonTela extends Button {
                     "INSERT INTO TSIREG\n" +
                             "(CODREG, CODUSU, CODSESSAO, DHACESSO, TELA)\n" +
                             "VALUES\n" +
-                            "(GET_CODREG(?), ?, ?, ?, ?)");
+                            "(GET_CODREG(?), ?, ?, SYSDATE, ?)");
             conex.addParameter(User.getCurrent().getCodUsu());
             conex.addParameter(User.getCurrent().getCodUsu());
             conex.addParameter(User.getCurrent().getCodSessão());
-            conex.addParameter(java.sql.Timestamp.from(java.time.Instant.now()));
             conex.addParameter(tela);
             conex.run();
         } catch (Exception ex) {
             ModelException.setNewException(new ModelException(this.getClass(), null,
                     "Erro ao tentar gravar registro: " + tela + "\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
+        } finally {
+            conex.desconecta();
         }
     }
 
@@ -163,3 +171,4 @@ public class ButtonTela extends Button {
         this.founder = founder;
     }
 }
+

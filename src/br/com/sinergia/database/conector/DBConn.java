@@ -31,7 +31,7 @@ public class DBConn {
             GravaLog.gravaInfo(connection.getInvoker(), getQuery());
         }
         getConnections().add(connection);
-        pst = con.prepareStatement(getQuery(), ResultSet.TYPE_SCROLL_INSENSITIVE);
+        pst = con.prepareStatement(getQuery());
     }
 
     public DBConn(Class invoker, Boolean hide, String query) throws SQLException {
@@ -44,7 +44,7 @@ public class DBConn {
             GravaLog.gravaInfo(connection.getInvoker(), getQuery());
         }
         getConnections().add(connection);
-        pst = con.prepareStatement(getQuery(), ResultSet.TYPE_SCROLL_INSENSITIVE);
+        pst = con.prepareStatement(getQuery());
     }
 
     public DBConn(Class invoker, Boolean hide, int secTimeOut, String query) throws SQLException {
@@ -57,7 +57,7 @@ public class DBConn {
             GravaLog.gravaInfo(connection.getInvoker(), getQuery());
         }
         getConnections().add(connection);
-        pst = con.prepareStatement(getQuery(), ResultSet.TYPE_SCROLL_INSENSITIVE);
+        pst = con.prepareStatement(getQuery());
         startTimer();
     }
 

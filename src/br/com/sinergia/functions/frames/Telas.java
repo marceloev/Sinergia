@@ -16,37 +16,39 @@ import static br.com.sinergia.functions.functions.toBoo;
 
 public class Telas {
 
+    private static final URL urlXML = Telas.class.getResource("/br/com/sinergia/functions/frames/Telas.xml");
     private static ArrayList<String> menus = new ArrayList<>();
     private static ArrayList<Tela> telas = new ArrayList<>();
-    private static final URL urlXML = Telas.class.getResource("/br/com/sinergia/functions/frames/Telas.xml");
 
     public static void loadConf() throws Error {
-        try {
-            DocumentBuilderFactory docBuilderFac = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = docBuilderFac.newDocumentBuilder();
-            Document doc = docBuilder.parse(urlXML.getPath());
-            doc.getDocumentElement().normalize();
-            NodeList nodeTelas = doc.getElementsByTagName("Tela");
-            int qtdTelas = nodeTelas.getLength();
-            Element element;
-            for (int idx = 0; idx < qtdTelas; idx++) {
-                element = (Element) nodeTelas.item(idx);
-                Integer codTela = Integer.valueOf(element.getAttribute("id"));
-                String descrTela = element.getElementsByTagName("descrTela").item(0).getTextContent();
-                String pathTela = element.getElementsByTagName("path").item(0).getTextContent();
-                Boolean isFrame = toBoo(element.getElementsByTagName("isFrame").item(0).getTextContent());
-                String founder = element.getElementsByTagName("founder").item(0).getTextContent();
-                getTelas().add(new Tela(codTela, descrTela, pathTela, isFrame, founder));
-                if(!pathTela.equals("null") && !getMenus().contains(pathTela)) getMenus().add(pathTela);
+        if (menus.size() == 0) {
+            try {
+                DocumentBuilderFactory docBuilderFac = DocumentBuilderFactory.newInstance();
+                DocumentBuilder docBuilder = docBuilderFac.newDocumentBuilder();
+                Document doc = docBuilder.parse(urlXML.getPath());
+                doc.getDocumentElement().normalize();
+                NodeList nodeTelas = doc.getElementsByTagName("Tela");
+                int qtdTelas = nodeTelas.getLength();
+                Element element;
+                for (int idx = 0; idx < qtdTelas; idx++) {
+                    element = (Element) nodeTelas.item(idx);
+                    Integer codTela = Integer.valueOf(element.getAttribute("id"));
+                    String descrTela = element.getElementsByTagName("descrTela").item(0).getTextContent();
+                    String pathTela = element.getElementsByTagName("path").item(0).getTextContent();
+                    Boolean isFrame = toBoo(element.getElementsByTagName("isFrame").item(0).getTextContent());
+                    String founder = element.getElementsByTagName("founder").item(0).getTextContent();
+                    getTelas().add(new Tela(codTela, descrTela, pathTela, isFrame, founder));
+                    if (!pathTela.equals("null") && !getMenus().contains(pathTela)) getMenus().add(pathTela);
+                }
+            } catch (ParserConfigurationException | SAXException | IOException ex) {
+                throw new Error(ex);
             }
-        } catch (ParserConfigurationException | SAXException | IOException ex) {
-            throw new Error(ex);
         }
     }
 
     public static Tela getByCod(Integer cod) {
-        for(Tela tela: Telas.getTelas()) {
-            if(tela.getCodTela().equals(cod)) {
+        for (Tela tela : Telas.getTelas()) {
+            if (tela.getCodTela().equals(cod)) {
                 return tela;
             }
         }
@@ -58,10 +60,10 @@ public class Telas {
     }
 
     public static ArrayList<Tela> getByMenu(String menu) throws Error {
-        if(getMenus().contains(menu)) {
+        if (getMenus().contains(menu)) {
             ArrayList<Tela> telas = new ArrayList<>();
-            for(Tela tela: getTelas()) {
-                if(tela.getPathTela().equals(menu)) telas.add(tela);
+            for (Tela tela : getTelas()) {
+                if (tela.getPathTela().equals(menu)) telas.add(tela);
             }
             return telas;
         } else {

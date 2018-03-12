@@ -58,6 +58,17 @@ public class ModelDialogButton {
         Alerta.setContentText(getContentMsg());
     }
 
+    public static int YesNoDialog(Class invoker, String título, String mensagem) {
+        ModelDialogButton.setDialogButton(new ModelDialogButton(invoker, título, mensagem));
+        ButtonType[] buttons = new ButtonType[2];
+        buttons[0] = new ButtonType("Sim");
+        buttons[1] = new ButtonType("Não");
+        ModelDialogButton.getDialogButton().createButton(buttons);
+        ButtonType getChoosed = ModelDialogButton.getDialogButton().returnChoosed();
+        if(getChoosed == buttons[0]) return 1;
+        else return 0;
+    }
+
     public void createButton(ButtonType[] BtnTypes) {
         this.BtnTypes = BtnTypes;
         Alerta.getButtonTypes().addAll(BtnTypes);

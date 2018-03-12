@@ -1,0 +1,1578 @@
+12/03/2018-00:47:02,176 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:47:02,527 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 89 milisegundo(s) 
+12/03/2018-00:47:02,824 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:47:02,824 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:47:02,825 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:47:02,825 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:02,825 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:47:02,877 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 52 milisegundo(s) 
+12/03/2018-00:47:03,011 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:47:03,011 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:03,013 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:47:03,031 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:47:03,052 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 21 milisegundo(s) 
+12/03/2018-00:47:03,052 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:47:08,712 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:47:08,712 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:08,712 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:47:08,713 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:08,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:08,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:47:08,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:47:08,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:47:08,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:47:08,738 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:08,789 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 51 milisegundo(s) 
+12/03/2018-00:47:08,832 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:08,832 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:47:08,833 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:08,834 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:47:08,855 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:08,856 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:08,914 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:47:08,914 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:08,915 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:08,967 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 52 milisegundo(s) 
+12/03/2018-00:47:09,035 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:47:09,036 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:09,036 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:47:09,036 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:47:09,065 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 29 milisegundo(s) 
+12/03/2018-00:47:09,066 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:47:09,165 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:47:09,166 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:09,170 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 4 milisegundo(s) 
+12/03/2018-00:47:09,191 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:47:09,191 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:47:09,193 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:47:09,211 | ERROR [class br.com.sinergia.functions.functions] : Erro ao tentar obter foto do usuário: 3 
+12/03/2018-00:47:55,304 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:47:55,522 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 71 milisegundo(s) 
+12/03/2018-00:47:55,562 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:47:55,562 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:47:55,562 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:47:55,562 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:55,562 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:47:55,608 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 46 milisegundo(s) 
+12/03/2018-00:47:55,656 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:47:55,656 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:55,658 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:47:55,677 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:47:55,677 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1809 
+12/03/2018-00:47:55,678 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:55,678 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:47:55,678 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:47:55,678 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:47:55,689 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 11 milisegundo(s) 
+12/03/2018-00:47:55,690 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:47:56,124 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:47:56,124 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,125 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:47:56,126 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:47:56,153 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:56,154 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:56,183 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:56,183 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:47:56,183 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:47:56,184 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:47:56,184 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:47:56,184 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:47:56,184 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:47:56,184 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:56,185 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:56,213 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:47:56,214 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:47:56,215 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:47:56,246 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:47:56,246 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,246 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,248 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:47:56,265 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:47:56,265 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,265 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-00:47:56,265 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-00:47:56,324 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 59 milisegundo(s) 
+12/03/2018-00:47:56,324 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:47:56,428 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:47:56,429 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,450 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 20 milisegundo(s) 
+12/03/2018-00:47:56,539 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:47:56,539 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:47:56,551 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 12 milisegundo(s) 
+12/03/2018-00:47:56,598 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:47:56,598 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:47:56,600 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:48:52,981 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:48:53,198 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 75 milisegundo(s) 
+12/03/2018-00:48:53,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:48:53,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:48:53,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:48:53,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:48:53,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:48:53,280 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 41 milisegundo(s) 
+12/03/2018-00:48:53,696 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:48:53,697 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:53,698 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:53,847 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:48:53,848 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 214 
+12/03/2018-00:48:53,848 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:53,848 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:48:53,848 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:48:53,848 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:48:53,889 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 40 milisegundo(s) 
+12/03/2018-00:48:53,889 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:48:54,460 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:48:54,460 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:54,460 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:48:54,462 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:54,488 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:48:54,488 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:48:54,488 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:48:54,489 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:48:54,489 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:48:54,489 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:48:54,490 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:48:54,518 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:48:54,519 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:48:54,520 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:54,596 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:48:54,596 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:48:54,597 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:48:54,598 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:54,627 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:48:54,627 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:54,627 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:54,629 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:48:54,646 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:48:54,646 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:54,646 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:48:54,646 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:48:54,669 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 23 milisegundo(s) 
+12/03/2018-00:48:54,669 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:48:55,532 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:48:55,532 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:48:55,546 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 14 milisegundo(s) 
+12/03/2018-00:48:55,581 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:48:55,581 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:48:55,582 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:48:55,594 | ERROR [class br.com.sinergia.functions.functions] : Erro ao tentar obter foto do usuário: 3 
+12/03/2018-00:49:03,428 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:49:03,429 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:03,470 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:49:03,470 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:49:03,470 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:49:03,470 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:03,470 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:49:03,489 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 19 milisegundo(s) 
+12/03/2018-00:49:03,553 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:49:03,553 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:03,554 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 215 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:49:03,571 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:49:03,573 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:49:03,573 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:49:03,664 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:49:03,664 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:03,664 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:49:03,665 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:03,682 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:03,683 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:49:03,683 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:49:03,683 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:49:03,683 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:49:03,683 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:03,684 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:49:03,701 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:49:03,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:49:03,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:03,703 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:03,779 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:03,779 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:49:03,779 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:49:03,779 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:49:03,779 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:49:03,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:49:03,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:49:03,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:03,781 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:49:04,094 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:49:04,094 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:04,096 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:49:17,184 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:49:17,388 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 66 milisegundo(s) 
+12/03/2018-00:49:17,427 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:49:17,427 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:49:17,428 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:49:17,428 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:17,428 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:49:17,472 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 44 milisegundo(s) 
+12/03/2018-00:49:17,593 | WARN [class br.com.sinergia.controller.fxml.LoginCtrl] : Senha digitada inválida 
+12/03/2018-00:49:21,056 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:49:21,057 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,097 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:49:21,098 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:49:21,098 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:49:21,098 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:21,098 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:49:21,112 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 14 milisegundo(s) 
+12/03/2018-00:49:21,178 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:49:21,178 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,179 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 216 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:49:21,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:49:21,201 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:49:21,201 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:49:21,592 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:49:21,592 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,592 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:49:21,593 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,618 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:21,618 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:49:21,619 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:49:21,619 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:49:21,619 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:49:21,619 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:21,620 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,644 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:49:21,645 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:21,646 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,691 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:21,691 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:49:21,691 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:49:21,691 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:49:21,692 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:49:21,692 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:49:21,692 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:49:21,692 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:21,693 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:21,730 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:49:21,730 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,730 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,733 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 3 milisegundo(s) 
+12/03/2018-00:49:21,757 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:49:21,758 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:21,758 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:49:21,758 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:49:21,760 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:49:21,760 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:49:22,584 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:49:22,584 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:22,586 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:49:22,607 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:49:22,607 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:49:22,608 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:22,610 | ERROR [class br.com.sinergia.functions.functions] : Erro ao tentar obter foto do usuário: 3 
+12/03/2018-00:49:45,587 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:49:45,799 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 68 milisegundo(s) 
+12/03/2018-00:49:45,841 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:49:45,842 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:49:45,842 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:49:45,842 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:45,842 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:49:45,858 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 16 milisegundo(s) 
+12/03/2018-00:49:45,942 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:49:45,943 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:45,947 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:45,967 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:49:45,967 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 217 
+12/03/2018-00:49:45,967 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:45,967 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:49:45,968 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:49:45,968 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:49:45,969 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:49:45,969 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:49:46,445 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:49:46,445 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:46,445 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:49:46,446 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:46,478 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:46,478 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:49:46,478 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:49:46,478 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:49:46,479 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:49:46,479 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:46,480 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:49:46,507 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:49:46,508 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:46,509 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:46,536 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:49:46,537 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:49:46,538 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:49:46,567 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:49:46,567 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:46,567 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:46,569 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:49:46,586 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:49:46,586 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:46,586 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:49:46,586 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:49:46,590 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 3 milisegundo(s) 
+12/03/2018-00:49:46,590 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:49:47,397 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:49:47,398 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:49:47,399 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:47,418 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:49:47,418 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:49:47,419 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:49:47,433 | ERROR [class br.com.sinergia.functions.functions] : Erro ao tentar obter foto do usuário: 3
+null 
+java.lang.NullPointerException
+	at java.io.ByteArrayInputStream.<init>(ByteArrayInputStream.java:106)
+	at br.com.sinergia.functions.functions.getImageUsu(functions.java:70)
+	at br.com.sinergia.models.extendeds.PaneMessages.loadMensagens(PaneMessages.java:113)
+	at br.com.sinergia.models.extendeds.PaneMessages.<init>(PaneMessages.java:36)
+	at br.com.sinergia.controller.fxml.PrincipalCtrl.lambda$estrutura$0(PrincipalCtrl.java:81)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+12/03/2018-00:50:54,199 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:50:54,469 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 83 milisegundo(s) 
+12/03/2018-00:50:54,509 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:50:54,510 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:50:54,510 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:50:54,510 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:50:54,510 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:50:54,527 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 17 milisegundo(s) 
+12/03/2018-00:50:54,770 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:50:54,770 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:54,771 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:54,792 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:50:54,792 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 218 
+12/03/2018-00:50:54,792 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:54,792 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:50:54,792 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:50:54,793 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:50:54,794 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:50:54,794 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:50:55,237 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:50:55,238 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:55,238 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:50:55,239 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:55,268 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:50:55,268 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:50:55,268 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:50:55,268 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:50:55,268 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:50:55,269 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:50:55,270 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:55,298 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:50:55,299 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:50:55,300 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:50:55,301 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:55,332 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:50:55,333 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:50:55,334 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:55,370 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:50:55,371 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:55,371 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:55,373 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:50:55,393 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:50:55,394 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:55,394 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:50:55,394 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:50:55,400 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 6 milisegundo(s) 
+12/03/2018-00:50:55,400 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:50:56,281 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:50:56,281 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:50:56,282 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:50:56,301 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:50:56,301 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:50:56,303 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:51:35,665 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:51:35,880 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 74 milisegundo(s) 
+12/03/2018-00:51:35,921 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:51:35,922 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:51:35,922 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:51:35,922 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:35,922 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:51:35,939 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 17 milisegundo(s) 
+12/03/2018-00:51:36,017 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:51:36,018 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,020 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 219 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:51:36,040 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:51:36,042 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:51:36,042 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:51:36,495 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:51:36,496 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,496 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:51:36,497 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:51:36,526 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:36,527 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:36,558 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:36,558 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:51:36,558 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:51:36,558 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:51:36,558 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:51:36,559 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:51:36,559 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:51:36,559 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:36,560 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:36,586 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:51:36,587 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:36,588 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:36,622 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:51:36,622 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,622 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,624 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:51:36,643 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:51:36,643 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:36,643 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:51:36,643 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:51:36,645 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:51:36,645 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:51:37,501 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:51:37,502 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:37,503 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:37,522 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:51:37,522 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:51:37,523 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:51:46,786 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:51:46,787 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:46,828 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:51:46,828 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:51:46,828 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:51:46,828 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:46,828 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:51:46,835 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 7 milisegundo(s) 
+12/03/2018-00:51:46,864 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:51:46,864 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:46,865 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:46,881 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:51:46,882 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1810 
+12/03/2018-00:51:46,882 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:46,882 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:51:46,882 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:51:46,882 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:51:46,883 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:51:46,883 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:51:47,059 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:51:47,060 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,060 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:51:47,061 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:47,078 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:47,079 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:51:47,079 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:51:47,079 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:51:47,079 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:51:47,079 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:47,080 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:47,097 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:51:47,098 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:47,099 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:47,117 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:51:47,118 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:51:47,119 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:47,139 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:51:47,140 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,140 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,141 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:51:47,158 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:51:47,159 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,159 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-00:51:47,159 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-00:51:47,187 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 28 milisegundo(s) 
+12/03/2018-00:51:47,187 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:51:47,537 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:51:47,537 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,540 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 3 milisegundo(s) 
+12/03/2018-00:51:47,566 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:51:47,566 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:51:47,579 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 13 milisegundo(s) 
+12/03/2018-00:51:47,620 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:51:47,621 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:51:47,623 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:52:00,895 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:52:00,896 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:00,930 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:52:00,930 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:52:00,930 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:52:00,931 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:52:00,931 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-00:52:00,949 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 18 milisegundo(s) 
+12/03/2018-00:52:01,014 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:52:01,015 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,016 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,033 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:52:01,033 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 220 
+12/03/2018-00:52:01,033 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,034 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:52:01,034 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:52:01,034 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:52:01,035 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:52:01,035 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:52:01,131 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:52:01,131 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,132 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:52:01,133 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,156 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:52:01,156 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:52:01,157 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:52:01,157 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:52:01,157 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:52:01,157 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:52:01,158 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:52:01,177 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:52:01,178 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:52:01,195 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:52:01,196 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:52:01,197 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,216 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:52:01,216 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,216 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,217 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:52:01,232 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:52:01,232 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,233 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-00:52:01,233 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-00:52:01,234 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:52:01,235 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:52:01,469 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:52:01,470 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:52:01,471 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:16,905 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:53:17,125 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 70 milisegundo(s) 
+12/03/2018-00:53:17,167 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:53:17,167 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:53:17,167 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:53:17,167 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:53:17,167 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:53:17,183 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 16 milisegundo(s) 
+12/03/2018-00:53:17,228 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:53:17,228 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,230 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:17,249 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:53:17,249 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1811 
+12/03/2018-00:53:17,249 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,249 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:53:17,249 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:53:17,250 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:53:17,252 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-00:53:17,252 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:53:17,671 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:53:17,672 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,672 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:53:17,673 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:17,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:53:17,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:53:17,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:53:17,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:53:17,702 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:53:17,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:53:17,704 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:53:17,732 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:53:17,733 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:53:17,734 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:17,761 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:53:17,761 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:53:17,761 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:53:17,761 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:53:17,762 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:53:17,762 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:53:17,762 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:53:17,762 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:53:17,763 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:53:17,792 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:53:17,792 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,792 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,794 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:53:17,811 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:53:17,812 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:17,812 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-00:53:17,812 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-00:53:17,815 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 3 milisegundo(s) 
+12/03/2018-00:53:17,815 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:53:18,696 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:53:18,696 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:18,698 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:53:18,718 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:53:18,718 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:53:18,737 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 19 milisegundo(s) 
+12/03/2018-00:53:18,776 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:53:18,776 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-00:53:18,785 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 9 milisegundo(s) 
+12/03/2018-00:55:14,231 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:55:14,232 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:55:14,269 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:55:14,270 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:55:14,270 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:55:14,270 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:55:14,270 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:55:14,285 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 15 milisegundo(s) 
+12/03/2018-00:55:14,320 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:55:14,320 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:55:14,321 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1812 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:55:14,338 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:55:14,339 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:55:14,340 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:55:14,471 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:55:14,472 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:55:14,472 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:55:14,472 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:55:14,490 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:55:14,490 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:55:14,490 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:55:14,490 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:55:14,490 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:55:14,491 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:55:14,491 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:55:14,511 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:55:14,511 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:55:14,511 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:55:14,511 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:55:14,512 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:55:14,512 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:55:14,512 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:55:14,512 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:55:14,513 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:55:14,544 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:55:14,545 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:55:14,546 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:55:14,869 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+AND ROWNUM <= 20
+ORDER BY MSG.CODMSG 
+12/03/2018-00:55:14,869 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:55:14,881 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 12 milisegundo(s) 
+12/03/2018-00:57:24,236 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:57:24,453 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 74 milisegundo(s) 
+12/03/2018-00:57:24,492 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:57:24,493 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:57:24,493 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:57:24,493 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:57:24,493 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:57:24,523 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 30 milisegundo(s) 
+12/03/2018-00:57:24,569 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:57:24,569 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:24,571 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:57:24,590 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:57:24,590 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1813 
+12/03/2018-00:57:24,591 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:24,591 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:57:24,591 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:57:24,591 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:57:24,616 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 25 milisegundo(s) 
+12/03/2018-00:57:24,616 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:57:25,040 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:57:25,041 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:25,041 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:57:25,042 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:57:25,071 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:57:25,071 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:57:25,071 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:57:25,072 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:57:25,072 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:57:25,072 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:57:25,074 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:57:25,102 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:57:25,103 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:57:25,104 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:57:25,138 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:57:25,138 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:57:25,139 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:57:25,140 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:57:25,172 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-00:57:25,172 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:25,172 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:25,174 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:57:25,192 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-00:57:25,192 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:25,192 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-00:57:25,192 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-00:57:25,219 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 27 milisegundo(s) 
+12/03/2018-00:57:25,220 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:57:26,082 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-00:57:26,082 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:26,116 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 34 milisegundo(s) 
+12/03/2018-00:57:26,136 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:57:26,136 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-00:57:26,137 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:57:26,192 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-00:57:26,192 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:57:26,210 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 18 milisegundo(s) 
+12/03/2018-00:58:13,241 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:58:13,242 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:58:13,279 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:58:13,279 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:58:13,279 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:58:13,279 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:13,279 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:58:13,301 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 22 milisegundo(s) 
+12/03/2018-00:58:13,374 | WARN [class br.com.sinergia.controller.fxml.LoginCtrl] : Senha digitada inválida 
+12/03/2018-00:58:16,396 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:58:16,397 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:58:16,433 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:58:16,433 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:58:16,433 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:58:16,433 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:16,433 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:58:16,489 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 56 milisegundo(s) 
+12/03/2018-00:58:16,520 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:58:16,520 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:16,521 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:16,539 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:58:16,539 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1814 
+12/03/2018-00:58:16,539 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:16,539 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:58:16,539 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:58:16,540 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:58:16,541 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:58:16,541 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:58:16,624 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:58:16,624 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:16,624 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:58:16,625 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:58:16,642 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:16,643 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:58:16,659 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:16,660 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:16,676 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:58:16,677 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:16,678 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:16,955 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-00:58:16,955 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:16,958 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-00:58:37,270 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:58:37,271 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:37,303 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:58:37,303 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:58:37,303 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:58:37,303 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:37,303 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:58:37,324 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 21 milisegundo(s) 
+12/03/2018-00:58:37,338 | WARN [class br.com.sinergia.controller.fxml.LoginCtrl] : Senha digitada inválida 
+12/03/2018-00:58:40,510 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-00:58:40,511 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-00:58:40,545 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-00:58:40,545 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-00:58:40,545 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-00:58:40,545 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:40,545 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-00:58:40,557 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 12 milisegundo(s) 
+12/03/2018-00:58:40,587 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-00:58:40,587 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:40,588 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:40,604 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-00:58:40,604 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1815 
+12/03/2018-00:58:40,604 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:40,604 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-00:58:40,604 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-00:58:40,605 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-00:58:40,606 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-00:58:40,606 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-00:58:40,716 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-00:58:40,716 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:40,716 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-00:58:40,717 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-00:58:40,737 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:40,738 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:40,757 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-00:58:40,758 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:40,759 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-00:58:40,780 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-00:58:40,781 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-00:58:41,003 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-00:58:41,003 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-00:58:41,005 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:00:05,869 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-01:00:06,099 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 75 milisegundo(s) 
+12/03/2018-01:00:06,149 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-01:00:06,150 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-01:00:06,150 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-01:00:06,150 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:00:06,150 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-01:00:06,173 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 23 milisegundo(s) 
+12/03/2018-01:00:06,218 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-01:00:06,218 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,220 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:06,239 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-01:00:06,240 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1816 
+12/03/2018-01:00:06,240 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,240 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-01:00:06,240 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-01:00:06,240 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-01:00:06,242 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-01:00:06,242 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:00:06,672 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-01:00:06,672 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,672 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-01:00:06,673 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-01:00:06,703 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:00:06,705 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:06,734 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-01:00:06,735 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:00:06,736 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-01:00:06,765 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:00:06,766 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:06,796 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-01:00:06,796 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,797 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,799 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:00:06,817 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-01:00:06,817 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:06,817 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-01:00:06,818 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-01:00:06,826 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 8 milisegundo(s) 
+12/03/2018-01:00:06,826 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:00:07,717 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-01:00:07,717 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:07,719 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:00:07,739 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:00:07,739 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-01:00:07,740 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:00:07,802 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:00:07,802 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:00:07,815 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 13 milisegundo(s) 
+12/03/2018-01:01:30,481 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-01:01:30,742 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 110 milisegundo(s) 
+12/03/2018-01:01:30,788 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-01:01:30,789 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-01:01:30,789 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-01:01:30,789 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:01:30,789 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-01:01:30,808 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 19 milisegundo(s) 
+12/03/2018-01:01:30,859 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-01:01:30,860 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:30,864 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 4 milisegundo(s) 
+12/03/2018-01:01:30,883 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-01:01:30,883 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1817 
+12/03/2018-01:01:30,883 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:30,883 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-01:01:30,883 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-01:01:30,884 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-01:01:30,904 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 20 milisegundo(s) 
+12/03/2018-01:01:30,904 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:01:31,360 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-01:01:31,361 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:31,361 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-01:01:31,362 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:31,385 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:01:31,386 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-01:01:31,386 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-01:01:31,386 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-01:01:31,386 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-01:01:31,386 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:01:31,387 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:31,412 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:01:31,412 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-01:01:31,412 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-01:01:31,413 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-01:01:31,413 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-01:01:31,413 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-01:01:31,413 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-01:01:31,413 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:01:31,415 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:31,438 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-01:01:31,439 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:01:31,440 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:31,473 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-01:01:31,474 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:31,474 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:31,476 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:01:31,493 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-01:01:31,493 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:31,493 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-01:01:31,493 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-01:01:31,495 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-01:01:31,495 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:01:32,357 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-01:01:32,357 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:32,359 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:32,379 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:01:32,379 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-01:01:32,380 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:01:32,436 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:01:32,436 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:01:32,450 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 14 milisegundo(s) 
+12/03/2018-01:02:49,944 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-01:02:49,945 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:49,983 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-01:02:49,983 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-01:02:49,983 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-01:02:49,984 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:02:49,984 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-01:02:50,000 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 16 milisegundo(s) 
+12/03/2018-01:02:50,050 | WARN [class br.com.sinergia.controller.fxml.LoginCtrl] : Senha digitada inválida 
+12/03/2018-01:02:54,482 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-01:02:54,483 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,520 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-01:02:54,521 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-01:02:54,521 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-01:02:54,521 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:02:54,521 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): CLARA 
+12/03/2018-01:02:54,533 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 12 milisegundo(s) 
+12/03/2018-01:02:54,596 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-01:02:54,596 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,597 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,618 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-01:02:54,619 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 221 
+12/03/2018-01:02:54,619 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,619 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-01:02:54,619 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-01:02:54,619 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-01:02:54,620 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-01:02:54,620 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:02:54,702 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-01:02:54,702 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,702 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-01:02:54,703 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-01:02:54,721 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:02:54,722 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-01:02:54,739 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:02:54,740 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-01:02:54,756 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:02:54,758 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,777 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-01:02:54,777 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,777 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,778 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:02:54,794 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-01:02:54,794 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:54,794 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:42:58.0 
+12/03/2018-01:02:54,795 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p><font face="Segoe UI">Lembretes pendetes de salvamento</font></p></body></html> 
+12/03/2018-01:02:54,796 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 1 milisegundo(s) 
+12/03/2018-01:02:54,797 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:02:55,168 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-01:02:55,169 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 2 
+12/03/2018-01:02:55,171 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:08:21,076 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT 1 FROM DUAL 
+12/03/2018-01:08:21,292 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 65 milisegundo(s) 
+12/03/2018-01:08:21,333 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT USU.ATIVO, USU.CODUSU, USU.NOME, USU.LOGIN, USU.FOTO, USU.PERFIL, USU.SENHA, MD5(?) AS CRYPT,
+GET_TSIPAR_T(?, ?) AS VERSAOATUALDB, EMP.CODEMP, EMP.RAZAOSOCIAL, EMP.NOMEFANTASIA, EMP.CNPJ FROM TSIUSU USU
+INNER JOIN TSIEMP EMP
+ON (USU.CODEMP = EMP.CODEMP)WHERE USU.LOGIN = ? 
+12/03/2018-01:08:21,333 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.String): (Criptografado) 
+12/03/2018-01:08:21,333 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.String): VERSAOATUALDB 
+12/03/2018-01:08:21,333 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:08:21,333 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): MARCELOEV 
+12/03/2018-01:08:21,374 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 41 milisegundo(s) 
+12/03/2018-01:08:21,419 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : SELECT GET_CODSESSAO(?) AS SESSAO FROM DUAL 
+12/03/2018-01:08:21,420 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:21,425 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 5 milisegundo(s) 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : INSERT INTO TSISES (CODSESSAO, CODUSU, DHLOGIN, IPMAQ, NOMEMAQ, VERSAOEXEC)
+VALUES (?, ?, SYSDATE, ?, ?, ?) 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 1º Parâmetro(java.lang.Integer): 1818 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 3º Parâmetro(java.lang.String): 192.168.1.18 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 4º Parâmetro(java.lang.String): Marcelo-NTB 
+12/03/2018-01:08:21,445 | INFO [class br.com.sinergia.controller.fxml.LoginCtrl] : 5º Parâmetro(java.lang.String): 1.0.0 
+12/03/2018-01:08:21,448 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 2 milisegundo(s) 
+12/03/2018-01:08:21,448 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:08:21,874 | INFO [class br.com.sinergia.functions.CtrlArquivos] : SELECT LISTA FROM TSIARQ ARQ
+WHERE ARQ.CODUSU = ?
+AND ARQ.ARQUIVO = ? 
+12/03/2018-01:08:21,875 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:21,875 | INFO [class br.com.sinergia.functions.CtrlArquivos] : 2º Parâmetro(java.lang.String): Telas Favoritas 
+12/03/2018-01:08:21,876 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [231, 213, 312] 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 231 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 213 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 312 
+12/03/2018-01:08:21,902 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:08:21,904 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:08:21,930 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:08:21,930 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1011, 1212, 1413, 1594, 1677] 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1011 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1212 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1413 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1594 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1677 
+12/03/2018-01:08:21,931 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:08:21,932 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:08:21,961 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : SELECT CODTELA, VISUALIZA FROM TSIPER WHERE CODTELA IN (?,?,?,?,?) AND CODPERFIL = ? 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.util.ArrayList): [1101, 1102, 1115, 1025, 1069] 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 1º Parâmetro(java.lang.Integer): 1101 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 2º Parâmetro(java.lang.Integer): 1102 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 3º Parâmetro(java.lang.Integer): 1115 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 4º Parâmetro(java.lang.Integer): 1025 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 5º Parâmetro(java.lang.Integer): 1069 
+12/03/2018-01:08:21,962 | INFO [class br.com.sinergia.functions.CtrlAccMenu] : 6º Parâmetro(java.lang.Integer): 0 
+12/03/2018-01:08:21,964 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 1 milisegundo(s) 
+12/03/2018-01:08:21,997 | INFO [class br.com.sinergia.models.statics.Lembrete] : SELECT LEMBRETE, DHALTER 
+FROM TGFLEM LEM
+WHERE CODUSU = ?
+AND DHALTER = (SELECT MAX(DHALTER) FROM TGFLEM WHERE CODUSU = ?) 
+12/03/2018-01:08:21,997 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:21,997 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:21,999 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:08:22,016 | INFO [class br.com.sinergia.models.statics.Lembrete] : INSERT INTO TGFLEM (CODUSU, DHALTER, LEMBRETE)
+VALUES (?, ?, ?) 
+12/03/2018-01:08:22,016 | INFO [class br.com.sinergia.models.statics.Lembrete] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:22,016 | INFO [class br.com.sinergia.models.statics.Lembrete] : 2º Parâmetro(java.sql.Timestamp): 2018-03-11 23:51:06.0 
+12/03/2018-01:08:22,016 | INFO [class br.com.sinergia.models.statics.Lembrete] : 3º Parâmetro(java.lang.String): <html dir="ltr"><head></head><body contenteditable="true"><p></p><ol><li><font face="Segoe UI">Corrigir validação de acessos (Licença).</font></li><li><font face="Segoe UI">Colocar botão no MenuAccordion() para expandir/contrair e quando o mouse estiver perto, ele expandir automático</font></li><li><font face="Segoe UI">As informações da máquina, na parte administrativa, devem conter :<br>Informações da JDK, arquitetura, etc...<br>Informações do Windows, versão, arquitetura e etc...<br>Informações da máquina, processador, memória e etc...<br>Informações do banco de dados, ping da máquina, versão do client oracle, versão do oracle, média de pool e etc...<br><b><u>TODAVIA, COMPARAR COM O SANKHYA-W QUANDO FOR FAZER</u></b></font></li><li><font face="Segoe UI">Colocar o "Clicked outside" no titledpane de propriedades.</font></li><li><font face="Segoe UI">Atualizar os ícones da rotina de avisos (Visualizado com priordade e demais)</font></li><li><font face="Segoe UI">Corrigir a atualização de valores da TableView, ou seja, ao mudar o valor na TableView, atualizar no banco de dados.</font></li><li><font face="Segoe UI">Corrigir o ButtonKeyField da TableView, quando clicar, abrir a tela de pesquisa para selecionar.</font></li><li><font face="Segoe UI">Arrumar o TimeOut de Query, arrumar o BtnCancelar da tela de produtos</font></li></ol><p></p></body></html> 
+12/03/2018-01:08:22,058 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: Statement executado em 42 milisegundo(s) 
+12/03/2018-01:08:22,058 | INFO [class br.com.sinergia.database.conector.DBConn] : 1 linha(s) afetadas. 
+12/03/2018-01:08:22,937 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : SELECT * FROM 
+(SELECT MSG.CODMSG, MSG.DHALTER, MSG.PRIORIDADE, MSG.TITULO, MSG.MENSAGEM, MSG.VISUALIZADA,
+CASE WHEN MSG.CODUSUREM IS NULL THEN -1 ELSE MSG.CODUSUREM END AS CODUSUREM,
+CASE WHEN MSG.CODUSUREM IS NULL THEN 'Desconhecido' ELSE USU.LOGIN END AS LOGINREM
+FROM TRIMSG MSG
+LEFT JOIN TSIUSU USU
+ON MSG.CODUSUREM = USU.CODUSU
+WHERE MSG.CODUSU = ?
+ORDER BY MSG.CODMSG DESC)
+WHERE ROWNUM <= 20 
+12/03/2018-01:08:22,937 | INFO [class br.com.sinergia.models.extendeds.PaneMessages] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:22,940 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 2 milisegundo(s) 
+12/03/2018-01:08:22,959 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:08:22,959 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 3 
+12/03/2018-01:08:22,960 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 0 milisegundo(s) 
+12/03/2018-01:08:23,020 | INFO [class br.com.sinergia.functions.functions] : SELECT FOTO FROM TSIUSU WHERE CODUSU = ? 
+12/03/2018-01:08:23,021 | INFO [class br.com.sinergia.functions.functions] : 1º Parâmetro(java.lang.Integer): 1 
+12/03/2018-01:08:23,028 | INFO [class br.com.sinergia.database.conector.DBConn] : DB SourceConnection: ResulSet criado em 7 milisegundo(s) 

@@ -2,6 +2,7 @@ package br.com.sinergia.models.statics;
 
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ public class AppInfo {
 
     private static String versaoExec;
     private static String versaoDB;
+    private static Stage stageMain;
     private static TabPane mainTabPane;
     private static ArrayList<String> tabPanes = new ArrayList<>();
     private static ArrayList<String> strTelasFav = new ArrayList<>();
@@ -69,6 +71,14 @@ public class AppInfo {
 
     public static void setStrTelasFav(ArrayList<String> strTelasFav) {
         AppInfo.strTelasFav = strTelasFav;
+    }
+
+    public static Stage getStageMain() {
+        return stageMain;
+    }
+
+    public static void setStageMain(Stage stageMain) {
+        AppInfo.stageMain = stageMain;
     }
 
     public void addPane() {};

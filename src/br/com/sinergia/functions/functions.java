@@ -1,10 +1,14 @@
 package br.com.sinergia.functions;
 
+import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.models.statics.AppInfo;
+import br.com.sinergia.views.dialogs.ModelException;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,11 +17,11 @@ import java.util.Map;
 
 public class functions {
 
-    public static SimpleDateFormat DataHoraFormater = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-    public static SimpleDateFormat DataFormater = new SimpleDateFormat("dd/MM/yyyy");
-    public static SimpleDateFormat HoraFormater = new SimpleDateFormat("HH:mm:ss");
-    public static SimpleDateFormat HourMinFormater = new SimpleDateFormat("HH:mm");
-    public static Map<Integer, Image> MapCachImgUsers = new LinkedHashMap<>();
+    public static SimpleDateFormat dataHoraFormater = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    public static SimpleDateFormat dataFormater = new SimpleDateFormat("dd/MM/yyyy");
+    public static SimpleDateFormat horaFormater = new SimpleDateFormat("HH:mm:ss");
+    public static SimpleDateFormat horaMinFormater = new SimpleDateFormat("HH:mm");
+    public static Map<Integer, Image> mapCachImgUsers = new LinkedHashMap<>();
 
     public static String nvl(String valor) {
         if (valor == null) return "";
@@ -50,6 +54,45 @@ public class functions {
 
     public static Integer getOnlyNumber(String valor) {
         return Integer.valueOf(valor.replaceAll("[^0-9]", ""));
+    }
+
+    public static Image getImageUsu(int codUsu) {
+        if (mapCachImgUsers.containsKey(codUsu)) return mapCachImgUsers.get(codUsu);
+        else if (codUsu == -1) return null;
+        else {
+            DBConn conex = null;
+            try {
+                conex = new DBConn(functions.class, false,
+                        "SELECT FOTO FROM TSIUSU WHERE CODUSU = ?");
+                conex.addParameter(codUsu);
+                conex.createSet();
+                if (conex.rs.next()) {
+                    if (conex.rs.getBytes(1) == null) {
+                        mapCachImgUsers.put(codUsu, null);
+                        return null;
+                    } else {
+                        InputStream input = new ByteArrayInputStream(conex.rs.getBytes(1));
+                        Image imgUsu = new Image(input);
+                        mapCachImgUsers.put(codUsu, imgUsu);
+                        return imgUsu;
+                    }
+                } else {
+                    ModelException.setNewException(new ModelException(functions.class, null,
+                            "Não encontrado usuário para código: " + codUsu));
+                    ModelException.getDialog().raise();
+                    mapCachImgUsers.put(codUsu, null);
+                    return null;
+                }
+            } catch (Exception ex) {
+                ModelException.setNewException(new ModelException(functions.class, null,
+                        "Erro ao tentar obter foto do usuário: " + codUsu + "\n" + ex.getMessage(), ex));
+                ModelException.getDialog().raise();
+                mapCachImgUsers.put(codUsu, null);
+                return null;
+            } finally {
+                conex.desconecta();
+            }
+        }
     }
 
     public static StringBuilder arrayParameter(ArrayList Array) {
