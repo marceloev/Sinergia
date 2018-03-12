@@ -83,28 +83,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaneMessages.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PaneMessages.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="89" lean-forward="false" selection-start-line="47" selection-start-column="89" selection-end-line="47" selection-end-column="89" />
+            <state relative-caret-position="272">
+              <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#showUnique#0;class#PaneMessages#0" expanded="false" />
                 <element signature="method#getMsgNaoVisualizada#0;class#PaneMessages#0" expanded="false" />
-                <element signature="e#11987#11988#0" expanded="true" />
-                <element signature="e#12013#12014#0" expanded="true" />
-                <element signature="e#12055#12056#0" expanded="true" />
-                <element signature="e#12085#12086#0" expanded="true" />
+                <element signature="e#13099#13100#0" expanded="true" />
+                <element signature="e#13125#13126#0" expanded="true" />
+                <element signature="e#13167#13168#0" expanded="true" />
+                <element signature="e#13197#13198#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrincipalCtrl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrincipalCtrl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/controller/fxml/PrincipalCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
+            <state relative-caret-position="1416">
               <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
               <folding />
             </state>
@@ -253,16 +253,17 @@
         <option value="$PROJECT_DIR$/src/br/com/sinergia/models/usage/Mensagem.java" />
         <option value="$PROJECT_DIR$/src/br/com/sinergia/models/statics/AppInfo.java" />
         <option value="$PROJECT_DIR$/src/br/com/sinergia/controller/fxml/testeuniqmsg.java" />
-        <option value="$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java" />
         <option value="$PROJECT_DIR$/src/br/com/sinergia/controller/fxml/PrincipalCtrl.java" />
+        <option value="$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="449" />
+    <option name="x" value="477" />
+    <option name="y" value="139" />
     <option name="width" value="1017" />
-    <option name="height" value="1001" />
+    <option name="height" value="968" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -598,7 +599,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="449" y="0" width="1017" height="1001" extended-state="0" />
+    <frame x="477" y="139" width="1017" height="968" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -968,16 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/functions/CtrlSenhaUsu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="103" column="37" lean-forward="false" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
-          <folding>
-            <element signature="method#autenticate#0;class#CtrlSenhaUsu#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/statics/Lembrete.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -994,27 +985,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java">
+    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/controller/fxml/PrincipalCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="89" lean-forward="false" selection-start-line="47" selection-start-column="89" selection-end-line="47" selection-end-column="89" />
+        <state relative-caret-position="1416">
+          <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/functions/CtrlSenhaUsu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="103" column="37" lean-forward="false" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#showUnique#0;class#PaneMessages#0" expanded="false" />
-            <element signature="method#getMsgNaoVisualizada#0;class#PaneMessages#0" expanded="false" />
-            <element signature="e#11987#11988#0" expanded="true" />
-            <element signature="e#12013#12014#0" expanded="true" />
-            <element signature="e#12055#12056#0" expanded="true" />
-            <element signature="e#12085#12086#0" expanded="true" />
+            <element signature="method#autenticate#0;class#CtrlSenhaUsu#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/controller/fxml/PrincipalCtrl.java">
+    <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#showUnique#0;class#PaneMessages#0" expanded="false" />
+            <element signature="method#getMsgNaoVisualizada#0;class#PaneMessages#0" expanded="false" />
+            <element signature="e#13099#13100#0" expanded="true" />
+            <element signature="e#13125#13126#0" expanded="true" />
+            <element signature="e#13167#13168#0" expanded="true" />
+            <element signature="e#13197#13198#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

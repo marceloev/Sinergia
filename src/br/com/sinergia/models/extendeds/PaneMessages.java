@@ -2,6 +2,7 @@ package br.com.sinergia.models.extendeds;
 
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.functions;
+import javafx.scene.input.Clipboard;
 import br.com.sinergia.functions.log.GravaLog;
 import br.com.sinergia.models.statics.AppInfo;
 import br.com.sinergia.models.usage.Mensagem;
@@ -15,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -33,6 +35,8 @@ public class PaneMessages extends ScrollPane {
     private DBConn conex;
     private int codUltMsg = 0, qtdMsgNaoVisualizada = 0;
     private Timeline tmlGetNewMessages;
+    private final Clipboard clipboard = Clipboard.getSystemClipboard();
+    private final ClipboardContent content = new ClipboardContent();
     private ObservableList<Mensagem> messages = FXCollections.observableArrayList();
     private ListView<Mensagem> listMensagem = new ListView<>(messages);
 
@@ -98,6 +102,20 @@ public class PaneMessages extends ScrollPane {
                     }
                 }
             });
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem menuItemNovaMsg = new MenuItem("Enviar nova mensagem");
+            contextMenu.getItems().add(menuItemNovaMsg);
+            MenuItem menuItemClipboard = new MenuItem("Copiar conteúdo");
+            menuItemClipboard.setOnAction(e-> {
+                if (listMensagem.getItems() != null
+                        && listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()) != null) {
+                    content.putString(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()).getMensagem());
+                    clipboard.setContent(content);
+                }
+            });
+            contextMenu.getItems().add(menuItemClipboard);
+            MenuItem menuItemResponder = new MenuItem("Responder");
+            contextMenu.getItems().add(menuItemResponder);
             AppInfo.getBtnMensagens().setStyle("-fx-text-fill: RED");
             VBox root = new VBox();
             root.getChildren().add(listMensagem);
