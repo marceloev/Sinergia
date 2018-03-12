@@ -117,10 +117,10 @@ public class PaneMessages extends ScrollPane {
             MenuItem menuItemResponder = new MenuItem("Responder");
             contextMenu.getItems().add(menuItemResponder);
             AppInfo.getBtnMensagens().setStyle("-fx-text-fill: RED");
-            VBox root = new VBox();
-            root.getChildren().add(listMensagem);
-            root.setFillWidth(true);
-            this.setContent(root);
+            HBox hBox = new HBox(new Label("Enviar nova mensagem"), new Label("Marcar todas como lidas"));
+            VBox vBox = new VBox(hBox, listMensagem);
+            vBox.setFillWidth(true);
+            this.setContent(vBox);
             KeyFrame toDoGetNewMessages = new KeyFrame(Duration.millis(3000), e -> getNewMessages());
             tmlGetNewMessages = new Timeline(toDoGetNewMessages);
             tmlGetNewMessages.setCycleCount(Timeline.INDEFINITE);

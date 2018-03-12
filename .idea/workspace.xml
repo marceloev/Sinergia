@@ -86,16 +86,16 @@
       <file leaf-file-name="PaneMessages.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
+            <state relative-caret-position="306">
+              <caret line="120" column="53" lean-forward="false" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#showUnique#0;class#PaneMessages#0" expanded="false" />
                 <element signature="method#getMsgNaoVisualizada#0;class#PaneMessages#0" expanded="false" />
-                <element signature="e#13099#13100#0" expanded="true" />
-                <element signature="e#13125#13126#0" expanded="true" />
-                <element signature="e#13167#13168#0" expanded="true" />
-                <element signature="e#13197#13198#0" expanded="true" />
+                <element signature="e#13174#13175#0" expanded="true" />
+                <element signature="e#13200#13201#0" expanded="true" />
+                <element signature="e#13242#13243#0" expanded="true" />
+                <element signature="e#13272#13273#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1005,16 +1005,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/sinergia/models/extendeds/PaneMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
+        <state relative-caret-position="306">
+          <caret line="120" column="53" lean-forward="false" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#showUnique#0;class#PaneMessages#0" expanded="false" />
             <element signature="method#getMsgNaoVisualizada#0;class#PaneMessages#0" expanded="false" />
-            <element signature="e#13099#13100#0" expanded="true" />
-            <element signature="e#13125#13126#0" expanded="true" />
-            <element signature="e#13167#13168#0" expanded="true" />
-            <element signature="e#13197#13198#0" expanded="true" />
+            <element signature="e#13174#13175#0" expanded="true" />
+            <element signature="e#13200#13201#0" expanded="true" />
+            <element signature="e#13242#13243#0" expanded="true" />
+            <element signature="e#13272#13273#0" expanded="true" />
           </folding>
         </state>
       </provider>
