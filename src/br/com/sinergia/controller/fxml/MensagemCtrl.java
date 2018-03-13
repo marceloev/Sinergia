@@ -3,6 +3,7 @@ package br.com.sinergia.controller.fxml;
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.database.querys.ListaQuerys;
 import br.com.sinergia.functions.MaskField;
+import br.com.sinergia.models.statics.AppInfo;
 import br.com.sinergia.models.usage.Mensagem;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelDialog;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.net.URL;
@@ -46,6 +48,8 @@ public class MensagemCtrl implements Initializable {
     }
 
     private void estrutura() {
+        Stage stage = (Stage) TxtCodRemetente.getScene().getWindow();
+        stage.initOwner(AppInfo.getStageMain());
         TxtCodRemetente.setText(User.getCurrent().getCodUsu() + "");
         TxtDescrRemetente.setText(User.getCurrent().getLoginUsu() + " - " + User.getCurrent().getNomeUsu());
         MaskField.SpnFieldCtrl(SpnPrioridade, 1, 3);

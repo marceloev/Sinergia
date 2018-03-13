@@ -1,0 +1,234 @@
+13/03/2018-08:19:00,425 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:21
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:21
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.access$700(FXMLLoader.java:103)
+	at javafx.fxml.FXMLLoader$ValueElement.processAttribute(FXMLLoader.java:922)
+	at javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(FXMLLoader.java:971)
+	at javafx.fxml.FXMLLoader$Element.processStartElement(FXMLLoader.java:220)
+	at javafx.fxml.FXMLLoader$ValueElement.processStartElement(FXMLLoader.java:744)
+	at javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2707)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2527)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:20)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassNotFoundException: br.com.sinergia.views.fxml.Mensagem
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at javafx.fxml.FXMLLoader$ValueElement.processAttribute(FXMLLoader.java:920)
+	... 22 more
+13/03/2018-08:19:40,684 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:20)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.sun.javafx.fxml.PropertyNotFoundException: Property "size" does not exist or is read-only.
+	at javafx.fxml.FXMLLoader$Element.processValue(FXMLLoader.java:348)
+	at javafx.fxml.FXMLLoader$Element.processPropertyAttribute(FXMLLoader.java:325)
+	at javafx.fxml.FXMLLoader$Element.processInstancePropertyAttributes(FXMLLoader.java:235)
+	at javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:767)
+	at javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2823)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2532)
+	... 17 more
+13/03/2018-08:20:08,262 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:20)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.sun.javafx.fxml.PropertyNotFoundException: Property "size" does not exist or is read-only.
+	at javafx.fxml.FXMLLoader$Element.processValue(FXMLLoader.java:348)
+	at javafx.fxml.FXMLLoader$Element.processPropertyAttribute(FXMLLoader.java:325)
+	at javafx.fxml.FXMLLoader$Element.processInstancePropertyAttributes(FXMLLoader.java:235)
+	at javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:767)
+	at javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2823)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2532)
+	... 17 more
+13/03/2018-08:22:43,372 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml:26
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:18)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.sun.javafx.fxml.PropertyNotFoundException: Property "size" does not exist or is read-only.
+	at javafx.fxml.FXMLLoader$Element.processValue(FXMLLoader.java:348)
+	at javafx.fxml.FXMLLoader$Element.processPropertyAttribute(FXMLLoader.java:325)
+	at javafx.fxml.FXMLLoader$Element.processInstancePropertyAttributes(FXMLLoader.java:235)
+	at javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:767)
+	at javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2823)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2532)
+	... 17 more
+13/03/2018-08:23:09,715 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:18)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at br.com.sinergia.controller.fxml.MensagemCtrl.estrutura(MensagemCtrl.java:49)
+	at br.com.sinergia.controller.fxml.MensagemCtrl.initialize(MensagemCtrl.java:45)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	... 17 more
+13/03/2018-08:25:00,020 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:18)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at br.com.sinergia.controller.fxml.MensagemCtrl.estrutura(MensagemCtrl.java:49)
+	at br.com.sinergia.controller.fxml.MensagemCtrl.initialize(MensagemCtrl.java:45)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	... 17 more
+13/03/2018-08:34:31,861 | ERROR [class br.com.sinergia.controller.fxml.teste] : Erro ao tentar conectar com banco de dados
+
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+ 
+javafx.fxml.LoadException: 
+/E:/Projetos/Sinergia/out/production/Sinergia/br/com/sinergia/views/fxml/Mensagem.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2579)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+	at br.com.sinergia.controller.fxml.teste.start(teste.java:18)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at br.com.sinergia.controller.fxml.MensagemCtrl.estrutura(MensagemCtrl.java:51)
+	at br.com.sinergia.controller.fxml.MensagemCtrl.initialize(MensagemCtrl.java:47)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	... 17 more
