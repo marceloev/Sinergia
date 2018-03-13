@@ -1,5 +1,6 @@
 package br.com.sinergia.models.extendeds;
 
+import br.com.sinergia.controller.fxml.MensagemCtrl;
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.functions;
 import br.com.sinergia.functions.log.GravaLog;
@@ -13,13 +14,17 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,12 +36,15 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
 
+import java.io.IOException;
+
 public class PaneMessages extends ScrollPane {
 
     private static Boolean estrutured = false;
     private final Clipboard clipboard = Clipboard.getSystemClipboard();
     private final ClipboardContent content = new ClipboardContent();
     private TitledPane ttp;
+    private VBox root;
     private DBConn conex;
     private int codUltMsg = 0, qtdMsgNaoVisualizada = 0;
     private Timeline tmlGetNewMessages;
@@ -53,96 +61,105 @@ public class PaneMessages extends ScrollPane {
     private void estrutura() {
         //Colocar contextmenu para COPIAR CONTEÚDO, RESPONDER, ENVIAR NOVA MENSAGEM;
         //Colocar botão de RESPONDER no showUnique, para gerar uma caixa de texto abaixo;
-        if (!estrutured) {
-            this.setFitToHeight(true);
-            this.setFitToWidth(true);
-            listMensagem.setCellFactory(new Callback<ListView<Mensagem>, ListCell<Mensagem>>() {
-                @Override
-                public ListCell<Mensagem> call(ListView<Mensagem> arg0) {
-                    return new ListCell<Mensagem>() {
-                        @Override
-                        protected void updateItem(Mensagem msg, boolean bln) {
-                            super.updateItem(msg, bln);
-                            if (msg != null) {
-                                ImageView imgRem = new ImageView(msg.getImgUsu());
-                                imgRem.setFitHeight(50);
-                                imgRem.setFitWidth(42);
-                                Text txtTitulo = new Text(msg.getTitulo());
-                                txtTitulo.setFont(Font.font("System", FontWeight.SEMI_BOLD, 14));
-                                txtTitulo.setFill(Color.BLACK);
-                                ImageView imgStatusMsg;
-                                if (msg.getVisualizada()) {
-                                    imgStatusMsg = new ImageView("/br/com/sinergia/views/images/Icone_Msg_Visualizada.png");
-                                    setStyle("-fx-control-inner-background: LightGray");
-                                } else {
-                                    imgStatusMsg = new ImageView("/br/com/sinergia/views/images/Icone_Msg_Pendente.png");
-                                    setStyle("-fx-control-inner-background: White");
+        try {
+            if (!estrutured) {
+                this.setFitToHeight(true);
+                this.setFitToWidth(true);
+                listMensagem.setCellFactory(new Callback<ListView<Mensagem>, ListCell<Mensagem>>() {
+                    @Override
+                    public ListCell<Mensagem> call(ListView<Mensagem> arg0) {
+                        return new ListCell<Mensagem>() {
+                            @Override
+                            protected void updateItem(Mensagem msg, boolean bln) {
+                                super.updateItem(msg, bln);
+                                if (msg != null) {
+                                    ImageView imgRem = new ImageView(msg.getImgUsu());
+                                    imgRem.setFitHeight(50);
+                                    imgRem.setFitWidth(42);
+                                    Text txtTitulo = new Text(msg.getTitulo());
+                                    txtTitulo.setFont(Font.font("System", FontWeight.SEMI_BOLD, 14));
+                                    txtTitulo.setFill(Color.BLACK);
+                                    ImageView imgStatusMsg;
+                                    if (msg.getVisualizada()) {
+                                        imgStatusMsg = new ImageView("/br/com/sinergia/views/images/Icone_Msg_Visualizada.png");
+                                        setStyle("-fx-control-inner-background: LightGray");
+                                    } else {
+                                        imgStatusMsg = new ImageView("/br/com/sinergia/views/images/Icone_Msg_Pendente.png");
+                                        setStyle("-fx-control-inner-background: White");
+                                    }
+                                    imgStatusMsg.setFitWidth(16);
+                                    imgStatusMsg.setFitHeight(16);
+                                    Text txtLogin = new Text(msg.getLoginUsu());
+                                    txtLogin.setFont(Font.font("System", 12));
+                                    Text txtDHMsg = new Text(functions.formatDate(functions.dataHoraFormater, msg.getDhAlter()));
+                                    txtDHMsg.setFont(Font.font("System", FontPosture.ITALIC, 12));
+                                    txtDHMsg.setFill(Color.valueOf("#807c7c"));
+                                    HBox Box = new HBox(txtTitulo, new Text(" "), imgStatusMsg);
+                                    HBox Box1 = new HBox(txtLogin);
+                                    HBox Box2 = new HBox(txtDHMsg);
+                                    VBox Box3 = new VBox(Box, Box1, Box2);
+                                    HBox hBox = new HBox(imgRem, Box3);
+                                    hBox.setSpacing(4);
+                                    setGraphic(hBox);
                                 }
-                                imgStatusMsg.setFitWidth(16);
-                                imgStatusMsg.setFitHeight(16);
-                                Text txtLogin = new Text(msg.getLoginUsu());
-                                txtLogin.setFont(Font.font("System", 12));
-                                Text txtDHMsg = new Text(functions.formatDate(functions.dataHoraFormater, msg.getDhAlter()));
-                                txtDHMsg.setFont(Font.font("System", FontPosture.ITALIC, 12));
-                                txtDHMsg.setFill(Color.valueOf("#807c7c"));
-                                HBox Box = new HBox(txtTitulo, new Text(" "), imgStatusMsg);
-                                HBox Box1 = new HBox(txtLogin);
-                                HBox Box2 = new HBox(txtDHMsg);
-                                VBox Box3 = new VBox(Box, Box1, Box2);
-                                HBox hBox = new HBox(imgRem, Box3);
-                                hBox.setSpacing(4);
-                                setGraphic(hBox);
                             }
+                        };
+                    }
+                });
+                listMensagem.setOnMouseClicked(e -> {
+                    if (e.getClickCount() > 1) {
+                        if (listMensagem.getItems() != null
+                                && listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()) != null) {
+                            showUnique(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()));
                         }
-                    };
-                }
-            });
-            listMensagem.setOnMouseClicked(e -> {
-                if (e.getClickCount() > 1) {
+                    }
+                });
+                ContextMenu contextMenu = new ContextMenu();
+                MenuItem menuItemNovaMsg = new MenuItem("Enviar nova mensagem");
+                contextMenu.getItems().add(menuItemNovaMsg);
+                MenuItem menuItemClipboard = new MenuItem("Copiar conteúdo");
+                menuItemClipboard.setOnAction(e -> {
                     if (listMensagem.getItems() != null
                             && listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()) != null) {
-                        showUnique(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()));
+                        content.putString(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()).getMensagem());
+                        clipboard.setContent(content);
                     }
-                }
-            });
-            ContextMenu contextMenu = new ContextMenu();
-            MenuItem menuItemNovaMsg = new MenuItem("Enviar nova mensagem");
-            contextMenu.getItems().add(menuItemNovaMsg);
-            MenuItem menuItemClipboard = new MenuItem("Copiar conteúdo");
-            menuItemClipboard.setOnAction(e -> {
-                if (listMensagem.getItems() != null
-                        && listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()) != null) {
-                    content.putString(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()).getMensagem());
-                    clipboard.setContent(content);
-                }
-            });
-            contextMenu.getItems().add(menuItemClipboard);
-            MenuItem menuItemResponder = new MenuItem("Responder");
-            contextMenu.getItems().add(menuItemResponder);
-            listMensagem.setContextMenu(contextMenu);
-            AppInfo.getBtnMensagens().setStyle("-fx-text-fill: RED");
-            JFXButton[] buttons = new JFXButton[2];
-            buttons[0] = new JFXButton("Nova Mensagem");
-            buttons[0].setStyle("-fx-text-fill: BLUE");
-            buttons[0].setCursor(Cursor.HAND);
-            buttons[0].setTooltip(new Tooltip("Enviar uma nova mensagem"));
-            buttons[1] = new JFXButton("Visualizar Todas");
-            buttons[1].setStyle("-fx-text-fill: BLUE");
-            buttons[1].setCursor(Cursor.HAND);
-            buttons[1].setTooltip(new Tooltip("Visualizar mensagens ainda não visualizadas"));
-            buttons[1].setOnAction(e -> {
-                for (Mensagem mensagem : listMensagem.getItems()) {
-                    if (!mensagem.getVisualizada()) showUnique(mensagem);
-                }
-            });
-            HBox hBox = new HBox(buttons[0], new Separator(Orientation.VERTICAL), buttons[1]);
-            VBox vBox = new VBox(hBox, listMensagem);
-            vBox.setFillWidth(true);
-            this.setContent(vBox);
-            KeyFrame toDoGetNewMessages = new KeyFrame(Duration.millis(3000), e -> getNewMessages());
-            tmlGetNewMessages = new Timeline(toDoGetNewMessages);
-            tmlGetNewMessages.setCycleCount(Timeline.INDEFINITE);
-            tmlGetNewMessages.play();
+                });
+                contextMenu.getItems().add(menuItemClipboard);
+                MenuItem menuItemResponder = new MenuItem("Responder");
+                contextMenu.getItems().add(menuItemResponder);
+                listMensagem.setContextMenu(contextMenu);
+                AppInfo.getBtnMensagens().setStyle("-fx-text-fill: RED");
+                JFXButton[] buttons = new JFXButton[2];
+                buttons[0] = new JFXButton("Nova Mensagem");
+                buttons[0].setStyle("-fx-text-fill: BLUE");
+                buttons[0].setCursor(Cursor.HAND);
+                buttons[0].setTooltip(new Tooltip("Enviar uma nova mensagem"));
+                buttons[0].setOnAction(e -> {
+                });
+                buttons[1] = new JFXButton("Visualizar Todas");
+                buttons[1].setStyle("-fx-text-fill: BLUE");
+                buttons[1].setCursor(Cursor.HAND);
+                buttons[1].setTooltip(new Tooltip("Visualizar mensagens ainda não visualizadas"));
+                buttons[1].setOnAction(e -> {
+                    for (Mensagem mensagem : listMensagem.getItems()) {
+                        if (!mensagem.getVisualizada()) showUnique(mensagem);
+                    }
+                });
+                HBox hBox = new HBox(buttons[0], new Separator(Orientation.VERTICAL), buttons[1]);
+                VBox vBox = new VBox(hBox, listMensagem);
+                vBox.setFillWidth(true);
+                root = vBox;
+                this.setContent(vBox);
+                KeyFrame toDoGetNewMessages = new KeyFrame(Duration.millis(3000), e -> getNewMessages());
+                tmlGetNewMessages = new Timeline(toDoGetNewMessages);
+                tmlGetNewMessages.setCycleCount(Timeline.INDEFINITE);
+                tmlGetNewMessages.play();
+            }
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(this.getClass(), null,
+                    "Erro ao tentar carregar propriedades da tela de mensagens\n" + ex.getMessage(), ex));
+            ModelException.getDialog().raise();
         }
     }
 
@@ -192,7 +209,7 @@ public class PaneMessages extends ScrollPane {
             conex.addParameter(User.getCurrent().getCodUsu());
             conex.createSet();
             conex.rs.next();
-            if(conex.rs.getInt(1) > 0) loadMensagens(false);
+            if (conex.rs.getInt(1) > 0) loadMensagens(false);
         } catch (Exception ex) {
             //Se apresentou mensagem, não vai ser mostrado erros.
             GravaLog.gravaErro(this.getClass(), "Erro ao tentar verificar se há novas mensagens\n" + ex.getMessage(), ex);
@@ -203,7 +220,7 @@ public class PaneMessages extends ScrollPane {
 
     private void setNewMessage(Mensagem newMessage, Boolean init) {
         tmlGetNewMessages.stop();
-        if(!init) messages.add(0, newMessage);
+        if (!init) messages.add(0, newMessage);
         else messages.add(newMessage);
         if (newMessage.getCodMsg() > codUltMsg) {
             codUltMsg = newMessage.getCodMsg();

@@ -91,6 +91,9 @@ public class AppInfo {
         AppInfo.btnMensagens = btnMensagens;
     }
 
-    public void addPane() {};
+    public void addPane() {
+    }
+
+    ;
 
 }

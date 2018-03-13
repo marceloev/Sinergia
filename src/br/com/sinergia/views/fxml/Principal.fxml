@@ -26,7 +26,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<SplitPane fx:id="PaneFundo" dividerPositions="0.5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-color: gray;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.PrincipalCtrl">
+<SplitPane fx:id="PaneFundo" dividerPositions="0.5" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1280.0" style="-fx-border-color: gray;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sinergia.controller.fxml.PrincipalCtrl">
       <items>
           <AnchorPane fx:id="PaneMenu" maxWidth="170.0" minHeight="0.0" minWidth="0.0" prefHeight="796.0" prefWidth="0.0" style="-fx-background-color: White;">
               <children>
@@ -242,7 +242,7 @@
                   </ImageView>
                </graphic>
             </TitledPane>
-            <TitledPane fx:id="TtpMensagens" layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="242.0" text="Mensagens" visible="false" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <TitledPane fx:id="TtpMensagens" layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="242.0" text="Mensagens" visible="false" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>

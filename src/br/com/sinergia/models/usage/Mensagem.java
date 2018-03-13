@@ -3,6 +3,7 @@ package br.com.sinergia.models.usage;
 import javafx.scene.image.Image;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 
 public class Mensagem {
 
@@ -27,6 +28,14 @@ public class Mensagem {
         setMensagem(mensagem);
         setVisualizada(visualizada);
         setImgUsu(imgUsu);
+    }
+
+    public Mensagem(int prioridade, String titulo, String mensagem) {
+        super();
+        setPrioridade(prioridade);
+        setTitulo(titulo);
+        setMensagem(mensagem);
+        setDhAlter(Timestamp.from(Instant.now()));
     }
 
     public int getCodUsu() {
@@ -74,7 +83,7 @@ public class Mensagem {
     }
 
     public void setImgUsu(Image imgUsu) {
-        if(imgUsu == null) this.imgUsu = new Image("/br/com/sinergia/views/images/default.png");
+        if (imgUsu == null) this.imgUsu = new Image("/br/com/sinergia/views/images/default.png");
         else this.imgUsu = imgUsu;
     }
 
