@@ -96,6 +96,58 @@ public class MensagemCtrl implements Initializable {
 
     }
 
+    public static void sendMessage(int codUsu, Mensagem mensagem) {
+        DBConn conex = null;
+        try {
+            conex = new DBConn(MensagemCtrl.class, false, ListaQuerys.getQueryInsertLembrete());
+            conex.addParameter(codUsu);
+            conex.addParameter("N");
+            conex.addParameter(mensagem.getMensagem());
+            conex.addParameter(mensagem.getPrioridade());
+            conex.addParameter(mensagem.getDhAlter());
+            conex.addParameter(mensagem.getTitulo());
+            conex.addParameter(null);
+            conex.addParameter(User.getCurrent().getCodUsu());
+            conex.run();
+            ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.INFORMATION, MensagemCtrl.class, null,
+                    "Mensagem enviada com sucesso!"));
+            ModelDialog.getDialog().raise();
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(MensagemCtrl.class, null,
+                    "Erro ao tentar enviar mensagem ao destinatário\n" + ex.getMessage(), ex));
+            ModelException.getDialog().raise();
+        } finally {
+            conex.desconecta();
+        }
+    }
+
+    public static void sendMessage(ArrayList<Integer> arrayUsu, Mensagem mensagem) {
+        DBConn conex = null;
+        try {
+            for (Integer codUsu : arrayUsu) {
+                conex = new DBConn(MensagemCtrl.class, false, ListaQuerys.getQueryInsertLembrete());
+                conex.addParameter(codUsu);
+                conex.addParameter("N");
+                conex.addParameter(mensagem.getMensagem());
+                conex.addParameter(mensagem.getPrioridade());
+                conex.addParameter(mensagem.getDhAlter());
+                conex.addParameter(mensagem.getTitulo());
+                conex.addParameter(null);
+                conex.addParameter(User.getCurrent().getCodUsu());
+                conex.run();
+            }
+            ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.INFORMATION, MensagemCtrl.class, null,
+                    "Mensagem enviada com sucesso!"));
+            ModelDialog.getDialog().raise();
+        } catch (Exception ex) {
+            ModelException.setNewException(new ModelException(MensagemCtrl.class, null,
+                    "Erro ao tentar enviar mensagens aos destinatários\n" + ex.getMessage(), ex));
+            ModelException.getDialog().raise();
+        } finally {
+            conex.desconecta();
+        }
+    }
+
     private void sendMessage(Mensagem mensagem) {
         if (validMensagem()) {
             DBConn conex = null;
