@@ -149,6 +149,7 @@ public class MensagemCtrl implements Initializable {
     }
 
     private void sendMessage(Mensagem mensagem) {
+        //mapcachimg get key set
         if (validMensagem()) {
             DBConn conex = null;
             try {
