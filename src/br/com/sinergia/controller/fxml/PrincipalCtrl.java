@@ -164,30 +164,4 @@ public class PrincipalCtrl implements Initializable {
             });
         });
     }
-
-
-    private void teste() {
-        ArrayList<Pair<String, String>> array = new ArrayList<>();
-        String a = "1";
-        String b = "2";
-        System.out.println(a + b);
-        a += b;
-        a = a + b;
-        ArrayList<String> abc = new ArrayList<>();
-
-    }
-
-    public static StringBuilder arrayParameter(ArrayList Array) {
-        StringBuilder parameterBuilder = new StringBuilder();
-        parameterBuilder.append("(");
-        for (int i = 0; i < Array.size(); i++) {
-            parameterBuilder.append("?");
-            if (Array.size() > i + 1) {
-                parameterBuilder.append(",");
-            }
-        }
-        parameterBuilder.append(")");
-        return parameterBuilder;
-
-    }
 }

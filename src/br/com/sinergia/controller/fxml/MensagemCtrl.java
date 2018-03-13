@@ -3,7 +3,6 @@ package br.com.sinergia.controller.fxml;
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.database.querys.ListaQuerys;
 import br.com.sinergia.functions.MaskField;
-import br.com.sinergia.models.statics.AppInfo;
 import br.com.sinergia.models.usage.Mensagem;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelDialog;
@@ -12,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.net.URL;
@@ -25,20 +23,22 @@ import static br.com.sinergia.functions.functions.*;
 
 public class MensagemCtrl implements Initializable {
 
-    DBConn conex;
-
     @FXML
-    private TextField TxtCodRemetente, TxtDescrRemetente, TxtTitulo;
+    private TextField TxtCodRemetente;
+    @FXML
+    private TextField TxtDescrRemetente;
+    @FXML
+    private TextField TxtTitulo;
     @FXML
     private TextArea TxtMensagem;
     @FXML
-    private Button BtnEnviar;
+    public Button BtnEnviar;
     @FXML
     private ToggleButton TggDestinatarios;
     @FXML
     private Spinner<Integer> SpnPrioridade;
     @FXML
-    private ImageView imgAdicionaDest, imgRemoveDest;
+    public ImageView imgAdicionaDest, imgRemoveDest;
     @FXML
     private ListView<Pair<Integer, String>> ListDestinatarios;
 
@@ -48,34 +48,32 @@ public class MensagemCtrl implements Initializable {
     }
 
     private void estrutura() {
-        Stage stage = (Stage) TxtCodRemetente.getScene().getWindow();
-        stage.initOwner(AppInfo.getStageMain());
-        TxtCodRemetente.setText(User.getCurrent().getCodUsu() + "");
-        TxtDescrRemetente.setText(User.getCurrent().getLoginUsu() + " - " + User.getCurrent().getNomeUsu());
-        MaskField.SpnFieldCtrl(SpnPrioridade, 1, 3);
-        SpnPrioridade.getValueFactory().setValue(3);
-        TggDestinatarios.selectedProperty().addListener((obs, oldV, newV) -> {
+        getTxtCodRemetente().setText(User.getCurrent().getCodUsu() + "");
+        getTxtDescrRemetente().setText(User.getCurrent().getLoginUsu() + " - " + User.getCurrent().getNomeUsu());
+        MaskField.SpnFieldCtrl(getSpnPrioridade(), 1, 3);
+        getSpnPrioridade().getValueFactory().setValue(3);
+        getTggDestinatarios().selectedProperty().addListener((obs, oldV, newV) -> {
             if (newV) {
                 imgAdicionaDest.setDisable(true);
                 imgRemoveDest.setDisable(true);
-                ListDestinatarios.setDisable(true);
+                getListDestinatarios().setDisable(true);
             } else {
                 imgAdicionaDest.setDisable(false);
                 imgRemoveDest.setDisable(false);
-                ListDestinatarios.setDisable(false);
+                getListDestinatarios().setDisable(false);
             }
         });
         BtnEnviar.setOnAction(e -> {
             sendMessage(
                     new Mensagem(
-                            SpnPrioridade.getValueFactory().getValue(),
-                            TxtTitulo.getText(),
-                            TxtMensagem.getText()));
+                            getSpnPrioridade().getValueFactory().getValue(),
+                            getTxtTitulo().getText(),
+                            getTxtMensagem().getText()));
         });
     }
 
     public void ctrlDestinatario(Boolean adding, Pair<Integer, String> destinario) {
-        long qtd = ListDestinatarios.getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())).count();
+        long qtd = getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())).count();
         if (adding) {
             if (qtd > 0) {
                 ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
@@ -83,7 +81,7 @@ public class MensagemCtrl implements Initializable {
                                 "Já existe na lista de destinários."));
                 ModelDialog.getDialog().raise();
             } else {
-                ListDestinatarios.getItems().add(destinario);
+                getListDestinatarios().getItems().add(destinario);
             }
         } else {
             if (qtd == 0) {
@@ -92,7 +90,7 @@ public class MensagemCtrl implements Initializable {
                                 "Não consta na lista de destinários."));
                 ModelDialog.getDialog().raise();
             } else {
-                ListDestinatarios.getItems().remove(ListDestinatarios.getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())));
+                getListDestinatarios().getItems().remove(getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())));
             }
         }
 
@@ -100,16 +98,17 @@ public class MensagemCtrl implements Initializable {
 
     private void sendMessage(Mensagem mensagem) {
         if (validMensagem()) {
+            DBConn conex = null;
             try {
                 List<String> listUsuDest = new ArrayList<>();
-                if (TggDestinatarios.isSelected()) {
-                    conex = new DBConn(this.getClass(), null, ListaQuerys.getAgrListCodUsu());
+                if (getTggDestinatarios().isSelected()) {
+                    conex = new DBConn(this.getClass(), false, ListaQuerys.getAgrListCodUsu());
                     conex.createSet();
                     conex.rs.next();
                     listUsuDest = Arrays.asList(conex.rs.getString(1).split(";"));
                 } else {
                     List<String> finalListUsuDest = listUsuDest;
-                    ListDestinatarios.getItems().forEach(destinatario -> {
+                    getListDestinatarios().getItems().forEach(destinatario -> {
                         finalListUsuDest.add(destinatario.getKey().toString());
                     });
                 }
@@ -139,17 +138,17 @@ public class MensagemCtrl implements Initializable {
     }
 
     private Boolean validMensagem() {
-        if (ListDestinatarios.getItems().isEmpty() && !TggDestinatarios.isSelected()) {
+        if (getListDestinatarios().getItems().isEmpty() && !getTggDestinatarios().isSelected()) {
             ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
                     "Informe ao menos um remetente para envio da mensagem"));
             ModelDialog.getDialog().raise();
             return false;
-        } else if (nvl(TxtTitulo.getText()).equals("")) {
+        } else if (nvl(getTxtTitulo().getText()).equals("")) {
             ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
                     "Informe um título para a mensagem"));
             ModelDialog.getDialog().raise();
             return false;
-        } else if (nvl(TxtMensagem.getText()).equals("")) {
+        } else if (nvl(getTxtMensagem().getText()).equals("")) {
             ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
                     "Informe valor a mensagem para enviar"));
             ModelDialog.getDialog().raise();
@@ -157,5 +156,33 @@ public class MensagemCtrl implements Initializable {
         } else {
             return true;
         }
+    }
+
+    public TextField getTxtCodRemetente() {
+        return TxtCodRemetente;
+    }
+
+    public TextField getTxtDescrRemetente() {
+        return TxtDescrRemetente;
+    }
+
+    public TextField getTxtTitulo() {
+        return TxtTitulo;
+    }
+
+    public TextArea getTxtMensagem() {
+        return TxtMensagem;
+    }
+
+    public ToggleButton getTggDestinatarios() {
+        return TggDestinatarios;
+    }
+
+    public Spinner<Integer> getSpnPrioridade() {
+        return SpnPrioridade;
+    }
+
+    public ListView<Pair<Integer, String>> getListDestinatarios() {
+        return ListDestinatarios;
     }
 }

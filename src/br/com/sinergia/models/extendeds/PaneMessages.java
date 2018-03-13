@@ -5,6 +5,7 @@ import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.functions;
 import br.com.sinergia.functions.log.GravaLog;
 import br.com.sinergia.models.statics.AppInfo;
+import br.com.sinergia.models.statics.AppMensagens;
 import br.com.sinergia.models.usage.Mensagem;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelException;
@@ -136,6 +137,7 @@ public class PaneMessages extends ScrollPane {
                 buttons[0].setCursor(Cursor.HAND);
                 buttons[0].setTooltip(new Tooltip("Enviar uma nova mensagem"));
                 buttons[0].setOnAction(e -> {
+                    AppMensagens.getStage().show();
                 });
                 buttons[1] = new JFXButton("Visualizar Todas");
                 buttons[1].setStyle("-fx-text-fill: BLUE");
