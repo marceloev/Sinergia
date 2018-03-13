@@ -2,20 +2,23 @@ package br.com.sinergia.models.extendeds;
 
 import br.com.sinergia.database.conector.DBConn;
 import br.com.sinergia.functions.functions;
-import javafx.scene.input.Clipboard;
 import br.com.sinergia.functions.log.GravaLog;
 import br.com.sinergia.models.statics.AppInfo;
 import br.com.sinergia.models.usage.Mensagem;
 import br.com.sinergia.models.usage.User;
 import br.com.sinergia.views.dialogs.ModelException;
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Orientation;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,12 +34,12 @@ import javafx.util.Duration;
 public class PaneMessages extends ScrollPane {
 
     private static Boolean estrutured = false;
+    private final Clipboard clipboard = Clipboard.getSystemClipboard();
+    private final ClipboardContent content = new ClipboardContent();
     private TitledPane ttp;
     private DBConn conex;
     private int codUltMsg = 0, qtdMsgNaoVisualizada = 0;
     private Timeline tmlGetNewMessages;
-    private final Clipboard clipboard = Clipboard.getSystemClipboard();
-    private final ClipboardContent content = new ClipboardContent();
     private ObservableList<Mensagem> messages = FXCollections.observableArrayList();
     private ListView<Mensagem> listMensagem = new ListView<>(messages);
 
@@ -106,7 +109,7 @@ public class PaneMessages extends ScrollPane {
             MenuItem menuItemNovaMsg = new MenuItem("Enviar nova mensagem");
             contextMenu.getItems().add(menuItemNovaMsg);
             MenuItem menuItemClipboard = new MenuItem("Copiar conteúdo");
-            menuItemClipboard.setOnAction(e-> {
+            menuItemClipboard.setOnAction(e -> {
                 if (listMensagem.getItems() != null
                         && listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()) != null) {
                     content.putString(listMensagem.getItems().get(listMensagem.getSelectionModel().getSelectedIndex()).getMensagem());
@@ -116,8 +119,23 @@ public class PaneMessages extends ScrollPane {
             contextMenu.getItems().add(menuItemClipboard);
             MenuItem menuItemResponder = new MenuItem("Responder");
             contextMenu.getItems().add(menuItemResponder);
+            listMensagem.setContextMenu(contextMenu);
             AppInfo.getBtnMensagens().setStyle("-fx-text-fill: RED");
-            HBox hBox = new HBox(new Label("Enviar nova mensagem"), new Label("Marcar todas como lidas"));
+            JFXButton[] buttons = new JFXButton[2];
+            buttons[0] = new JFXButton("Nova Mensagem");
+            buttons[0].setStyle("-fx-text-fill: BLUE");
+            buttons[0].setCursor(Cursor.HAND);
+            buttons[0].setTooltip(new Tooltip("Enviar uma nova mensagem"));
+            buttons[1] = new JFXButton("Visualizar Todas");
+            buttons[1].setStyle("-fx-text-fill: BLUE");
+            buttons[1].setCursor(Cursor.HAND);
+            buttons[1].setTooltip(new Tooltip("Visualizar mensagens ainda não visualizadas"));
+            buttons[1].setOnAction(e -> {
+                for (Mensagem mensagem : listMensagem.getItems()) {
+                    if (!mensagem.getVisualizada()) showUnique(mensagem);
+                }
+            });
+            HBox hBox = new HBox(buttons[0], new Separator(Orientation.VERTICAL), buttons[1]);
             VBox vBox = new VBox(hBox, listMensagem);
             vBox.setFillWidth(true);
             this.setContent(vBox);
@@ -156,7 +174,7 @@ public class PaneMessages extends ScrollPane {
                         conex.rs.getString(5),
                         functions.toBoo(conex.rs.getString(6)),
                         functions.getImageUsu(conex.rs.getInt("CODUSUREM"))
-                ));
+                ), init);
             }
         } catch (Exception ex) {
             //Se apresentou mensagem, não vai ser mostrado erros.
@@ -172,9 +190,9 @@ public class PaneMessages extends ScrollPane {
                     "SELECT COUNT(1) FROM TRIMSG WHERE CODMSG > ? AND CODUSU = ?");
             conex.addParameter(codUltMsg);
             conex.addParameter(User.getCurrent().getCodUsu());
+            conex.createSet();
             conex.rs.next();
-            int count = conex.rs.getInt(1);
-            if (count > 0) loadMensagens(false);
+            if(conex.rs.getInt(1) > 0) loadMensagens(false);
         } catch (Exception ex) {
             //Se apresentou mensagem, não vai ser mostrado erros.
             GravaLog.gravaErro(this.getClass(), "Erro ao tentar verificar se há novas mensagens\n" + ex.getMessage(), ex);
@@ -183,9 +201,10 @@ public class PaneMessages extends ScrollPane {
         }
     }
 
-    private void setNewMessage(Mensagem newMessage) {
+    private void setNewMessage(Mensagem newMessage, Boolean init) {
         tmlGetNewMessages.stop();
-        messages.add(newMessage);
+        if(!init) messages.add(0, newMessage);
+        else messages.add(newMessage);
         if (newMessage.getCodMsg() > codUltMsg) {
             codUltMsg = newMessage.getCodMsg();
         }
@@ -200,8 +219,18 @@ public class PaneMessages extends ScrollPane {
 
     private void showUnique(Mensagem mensagem) {
         if (!mensagem.getVisualizada()) {
-            mensagem.setVisualizada(true);
-            getMsgNaoVisualizada(false);
+            try {
+                conex = new DBConn(this.getClass(), false, "UPDATE TRIMSG SET VISUALIZADA = 'S', DHVISUALIZADA = SYSDATE WHERE CODMSG = ?");
+                conex.addParameter(mensagem.getCodMsg());
+                conex.run();
+                mensagem.setVisualizada(true);
+                getMsgNaoVisualizada(false);
+                listMensagem.refresh();
+            } catch (Exception ex) {
+                ModelException.setNewException(new ModelException(this.getClass(), null,
+                        "Erro ao tentar marcar mensagem como visualizada\n" + ex.getMessage(), ex));
+                ModelException.getDialog().raise();
+            }
         }
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.getDialogPane().getStylesheets().add("/br/com/sinergia/views/CssFiles/MsgDialog.css");
@@ -219,11 +248,11 @@ public class PaneMessages extends ScrollPane {
                 txtPrioridade.setFill(Color.RED);
                 break;
             case 2:
-                txtPrioridade.setText(txtPrioridade.getText() + "1");
-                txtPrioridade.setFill(Color.YELLOW);
+                txtPrioridade.setText(txtPrioridade.getText() + "2");
+                txtPrioridade.setFill(Color.ORANGE);
                 break;
             case 3:
-                txtPrioridade.setText(txtPrioridade.getText() + "1");
+                txtPrioridade.setText(txtPrioridade.getText() + "3");
                 txtPrioridade.setFill(Color.BLACK);
                 break;
             default:

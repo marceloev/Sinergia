@@ -20,10 +20,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.Pair;
 
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static br.com.sinergia.functions.functions.*;
@@ -60,6 +62,7 @@ public class PrincipalCtrl implements Initializable {
     }
 
     private void estrutura() {
+        AppInfo.getStrTelasFav().clear(); //Limpa cache
         AppInfo.setMainTabPane(AbaPane);
         AppInfo.setvBoxFavoritos(VBoxFavoritos);
         AppInfo.setvBoxRecentes(VBoxRecentes);
@@ -92,7 +95,7 @@ public class PrincipalCtrl implements Initializable {
             TtpPropriedades.focusedProperty().addListener((obs, wasF, isF) -> {
                 if (wasF) {
                     Timeline timeline = new Timeline(new KeyFrame(
-                            Duration.millis(150), //0.150clara Segundos
+                            Duration.millis(300), //0.3 segundos
                             ae -> TtpPropriedades.setExpanded(false)));
                     timeline.play();
                 }
@@ -160,5 +163,31 @@ public class PrincipalCtrl implements Initializable {
                 }
             });
         });
+    }
+
+
+    private void teste() {
+        ArrayList<Pair<String, String>> array = new ArrayList<>();
+        String a = "1";
+        String b = "2";
+        System.out.println(a + b);
+        a += b;
+        a = a + b;
+        ArrayList<String> abc = new ArrayList<>();
+
+    }
+
+    public static StringBuilder arrayParameter(ArrayList Array) {
+        StringBuilder parameterBuilder = new StringBuilder();
+        parameterBuilder.append("(");
+        for (int i = 0; i < Array.size(); i++) {
+            parameterBuilder.append("?");
+            if (Array.size() > i + 1) {
+                parameterBuilder.append(",");
+            }
+        }
+        parameterBuilder.append(")");
+        return parameterBuilder;
+
     }
 }
