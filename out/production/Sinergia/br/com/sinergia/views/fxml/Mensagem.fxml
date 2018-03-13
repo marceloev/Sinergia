@@ -37,7 +37,7 @@
       <TextField fx:id="TxtDescrRemetente" alignment="CENTER" disable="true" editable="false" layoutX="118.0" layoutY="40.0" prefHeight="25.0" prefWidth="268.0" />
       <Text layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prioridade:" underline="true" wrappingWidth="60.0" />
       <Spinner fx:id="SpnPrioridade" layoutX="15.0" layoutY="93.0" prefHeight="25.0" prefWidth="89.0" />
-      <JFXToggleButton fx:id="TggDestinatarios" alignment="CENTER_RIGHT" layoutX="102.0" layoutY="73.0" prefHeight="58.0" prefWidth="245.0" text="Enviar para todos usuários" textAlignment="CENTER" toggleColor="WHITE" toggleLineColor="#2d8acd" AnchorPane.bottomAnchor="349.0" />
+      <JFXToggleButton fx:id="TggDestinatarios" alignment="CENTER_RIGHT" layoutX="102.0" layoutY="70.0" prefHeight="58.0" prefWidth="245.0" text="Enviar para todos usuários" textAlignment="CENTER" toggleColor="WHITE" toggleLineColor="#2d8acd" />
       <Separator layoutY="124.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="210.0" />
       <Text layoutX="3.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título:" textAlignment="CENTER" underline="true" wrappingWidth="424.0000057220459" />
       <JFXTextField fx:id="TxtTitulo" alignment="CENTER" focusColor="#3e9bed" layoutX="15.0" layoutY="142.0" prefHeight="25.0" prefWidth="259.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="225.0" />

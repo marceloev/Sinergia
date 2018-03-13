@@ -29,6 +29,7 @@ public class AppMensagens {
                 AppMensagens.stage.getIcons().add(new Image("/br/com/sinergia/views/images/Icone_Msg_Recebida.png"));
                 AppMensagens.stage.initOwner(AppInfo.getStageMain());
                 AppMensagens.stage.initModality(Modality.WINDOW_MODAL);
+                estruturado = true;
             }
             mensagemCtrl.getTxtCodRemetente().setText(User.getCurrent().getCodUsu() + "");
             mensagemCtrl.getTxtDescrRemetente().setText(User.getCurrent().getLoginUsu());

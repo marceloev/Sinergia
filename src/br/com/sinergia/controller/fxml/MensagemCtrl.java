@@ -15,14 +15,17 @@ import javafx.util.Pair;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import static br.com.sinergia.functions.functions.*;
+import static br.com.sinergia.functions.functions.mapCachImgUsers;
+import static br.com.sinergia.functions.functions.nvl;
 
 public class MensagemCtrl implements Initializable {
 
+    @FXML
+    public Button BtnEnviar;
+    @FXML
+    public ImageView imgAdicionaDest, imgRemoveDest;
     @FXML
     private TextField TxtCodRemetente;
     @FXML
@@ -32,69 +35,11 @@ public class MensagemCtrl implements Initializable {
     @FXML
     private TextArea TxtMensagem;
     @FXML
-    public Button BtnEnviar;
-    @FXML
     private ToggleButton TggDestinatarios;
     @FXML
     private Spinner<Integer> SpnPrioridade;
     @FXML
-    public ImageView imgAdicionaDest, imgRemoveDest;
-    @FXML
     private ListView<Pair<Integer, String>> ListDestinatarios;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        estrutura();
-    }
-
-    private void estrutura() {
-        getTxtCodRemetente().setText(User.getCurrent().getCodUsu() + "");
-        getTxtDescrRemetente().setText(User.getCurrent().getLoginUsu() + " - " + User.getCurrent().getNomeUsu());
-        MaskField.SpnFieldCtrl(getSpnPrioridade(), 1, 3);
-        getSpnPrioridade().getValueFactory().setValue(3);
-        getTggDestinatarios().selectedProperty().addListener((obs, oldV, newV) -> {
-            if (newV) {
-                imgAdicionaDest.setDisable(true);
-                imgRemoveDest.setDisable(true);
-                getListDestinatarios().setDisable(true);
-            } else {
-                imgAdicionaDest.setDisable(false);
-                imgRemoveDest.setDisable(false);
-                getListDestinatarios().setDisable(false);
-            }
-        });
-        BtnEnviar.setOnAction(e -> {
-            sendMessage(
-                    new Mensagem(
-                            getSpnPrioridade().getValueFactory().getValue(),
-                            getTxtTitulo().getText(),
-                            getTxtMensagem().getText()));
-        });
-    }
-
-    public void ctrlDestinatario(Boolean adding, Pair<Integer, String> destinario) {
-        long qtd = getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())).count();
-        if (adding) {
-            if (qtd > 0) {
-                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
-                        "Usuário: " + destinario.getKey() + " - " + destinario.getValue() + "\n" +
-                                "Já existe na lista de destinários."));
-                ModelDialog.getDialog().raise();
-            } else {
-                getListDestinatarios().getItems().add(destinario);
-            }
-        } else {
-            if (qtd == 0) {
-                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
-                        "Usuário: " + destinario.getKey() + " - " + destinario.getValue() + "\n" +
-                                "Não consta na lista de destinários."));
-                ModelDialog.getDialog().raise();
-            } else {
-                getListDestinatarios().getItems().remove(getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())));
-            }
-        }
-
-    }
 
     public static void sendMessage(int codUsu, Mensagem mensagem) {
         DBConn conex = null;
@@ -148,44 +93,87 @@ public class MensagemCtrl implements Initializable {
         }
     }
 
-    private void sendMessage(Mensagem mensagem) {
-        //mapcachimg get key set
-        if (validMensagem()) {
-            DBConn conex = null;
-            try {
-                List<String> listUsuDest = new ArrayList<>();
-                if (getTggDestinatarios().isSelected()) {
-                    conex = new DBConn(this.getClass(), false, ListaQuerys.getAgrListCodUsu());
-                    conex.createSet();
-                    conex.rs.next();
-                    listUsuDest = Arrays.asList(conex.rs.getString(1).split(";"));
-                } else {
-                    List<String> finalListUsuDest = listUsuDest;
-                    getListDestinatarios().getItems().forEach(destinatario -> {
-                        finalListUsuDest.add(destinatario.getKey().toString());
-                    });
-                }
-                for (String usuDest : listUsuDest) {
-                    conex = new DBConn(this.getClass(), false, ListaQuerys.getQueryInsertLembrete());
-                    conex.addParameter(usuDest);
-                    conex.addParameter("N");
-                    conex.addParameter(mensagem.getMensagem());
-                    conex.addParameter(mensagem.getPrioridade());
-                    conex.addParameter(mensagem.getDhAlter());
-                    conex.addParameter(mensagem.getTitulo());
-                    conex.addParameter(null);
-                    conex.addParameter(User.getCurrent().getCodUsu());
-                    conex.run();
-                }
-                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.INFORMATION, this.getClass(), null,
-                        "Mensagem enviada com sucesso!"));
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        estrutura();
+    }
+
+    private void estrutura() {
+        getTxtCodRemetente().setText(User.getCurrent().getCodUsu() + "");
+        getTxtDescrRemetente().setText(User.getCurrent().getLoginUsu() + " - " + User.getCurrent().getNomeUsu());
+        MaskField.SpnFieldCtrl(getSpnPrioridade(), 1, 3);
+        getSpnPrioridade().getValueFactory().setValue(3);
+        getTggDestinatarios().selectedProperty().addListener((obs, oldV, newV) -> {
+            if (newV) {
+                imgAdicionaDest.setDisable(true);
+                imgRemoveDest.setDisable(true);
+                imgAdicionaDest.setOpacity(0.5);
+                imgRemoveDest.setOpacity(0.5);
+                getListDestinatarios().setDisable(true);
+            } else {
+                imgAdicionaDest.setDisable(false);
+                imgRemoveDest.setDisable(false);
+                imgAdicionaDest.setOpacity(1);
+                imgRemoveDest.setOpacity(1);
+                getListDestinatarios().setDisable(false);
+            }
+        });
+        BtnEnviar.setOnAction(e -> {
+            sendMessageFrame(
+                    new Mensagem(
+                            getSpnPrioridade().getValueFactory().getValue(),
+                            getTxtTitulo().getText(),
+                            getTxtMensagem().getText()));
+        });
+    }
+
+    public void ctrlDestinatario(Boolean adding, Pair<Integer, String> destinario) {
+        long qtd = getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())).count();
+        if (adding) {
+            if (qtd > 0) {
+                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
+                        "Usuário: " + destinario.getKey() + " - " + destinario.getValue() + "\n" +
+                                "Já existe na lista de destinários."));
                 ModelDialog.getDialog().raise();
-            } catch (Exception ex) {
-                ModelException.setNewException(new ModelException(this.getClass(), null,
-                        "Erro ao tentar enviar mensagens aos destinatários\n" + ex.getMessage(), ex));
-                ModelException.getDialog().raise();
-            } finally {
-                conex.desconecta();
+            } else {
+                getListDestinatarios().getItems().add(destinario);
+            }
+        } else {
+            if (qtd == 0) {
+                ModelDialog.setNewDialog(new ModelDialog(Alert.AlertType.WARNING, this.getClass(), null,
+                        "Usuário: " + destinario.getKey() + " - " + destinario.getValue() + "\n" +
+                                "Não consta na lista de destinários."));
+                ModelDialog.getDialog().raise();
+            } else {
+                getListDestinatarios().getItems().remove(getListDestinatarios().getItems().stream().filter(destList -> destList.getKey().equals(destinario.getKey())));
+            }
+        }
+
+    }
+
+    private void sendMessageFrame(Mensagem mensagem) {
+        if (validMensagem()) {
+            if (TggDestinatarios.isSelected()) {
+                DBConn conex = null;
+                try {
+                    conex = new DBConn(this.getClass(), false, "SELECT CODUSU FROM TSIUSU WHERE CODUSU <> 0");
+                    conex.createSet();
+                    ArrayList<Integer> arrayUsu = new ArrayList<>();
+                    while (conex.rs.next()) {
+                        arrayUsu.add(conex.rs.getInt(1));
+                    }
+                    sendMessage(arrayUsu, mensagem);
+                } catch (Exception ex) {
+                    ModelException.setNewException(new ModelException(this.getClass(), null,
+                            "Erro ao tentar capturar lista de usuários para envio de mensagem\n" + ex.getMessage(), ex));
+                    ModelException.getDialog().raise();
+                } //Não da o finaly aqui, porque a classe sendMessage já finaliza.
+            } else {
+                ArrayList<Integer> codUsu = new ArrayList<>();
+                getListDestinatarios().getItems().forEach(destinatario -> {
+                    codUsu.add(destinatario.getKey());
+                });
+                sendMessage(codUsu, mensagem);
             }
         }
     }
