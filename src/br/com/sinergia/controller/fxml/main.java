@@ -1,5 +1,6 @@
 package br.com.sinergia.controller.fxml;
 
+import br.com.sinergia.database.Dicionario.DicDados;
 import br.com.sinergia.functions.frames.Tela;
 import br.com.sinergia.functions.frames.Telas;
 import br.com.sinergia.views.dialogs.ModelException;
@@ -17,7 +18,8 @@ public class main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Telas.loadConf();
+            DicDados.readDicionario(); //Lê o DicionarioDados.xml e constroi os valores.
+            Telas.loadConf(); //Lê o Telas.dxml e constroi os valores
             Tela tela = Telas.getByCod(0);
             Parent root = FXMLLoader.load(getClass().getResource(tela.getFounder()));
             Scene scene = new Scene(root);
@@ -30,7 +32,7 @@ public class main extends Application {
             primaryStage.setX((screenBounds.getWidth() - primaryStage.getWidth()) / 2);
             primaryStage.setY((screenBounds.getHeight() - primaryStage.getHeight()) / 2);
         } catch (Exception ex) {
-            ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar conectar com banco de dados\n" + ex.getMessage(), ex));
+            ModelException.setNewException(new ModelException(this.getClass(), null, "Erro ao tentar construir aplicação\n" + ex.getMessage(), ex));
             ModelException.getDialog().raise();
         }
     }

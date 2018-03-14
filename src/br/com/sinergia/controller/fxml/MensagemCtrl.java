@@ -17,7 +17,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static br.com.sinergia.functions.functions.mapCachImgUsers;
 import static br.com.sinergia.functions.functions.nvl;
 
 public class MensagemCtrl implements Initializable {
@@ -118,12 +117,14 @@ public class MensagemCtrl implements Initializable {
                 getListDestinatarios().setDisable(false);
             }
         });
+        imgAdicionaDest.setOnMouseClicked(e -> {
+            System.out.println("Acted");
+        });
         BtnEnviar.setOnAction(e -> {
-            sendMessageFrame(
-                    new Mensagem(
-                            getSpnPrioridade().getValueFactory().getValue(),
-                            getTxtTitulo().getText(),
-                            getTxtMensagem().getText()));
+            sendMessageFrame(new Mensagem(
+                    getSpnPrioridade().getValueFactory().getValue(),
+                    getTxtTitulo().getText(),
+                    getTxtMensagem().getText()));
         });
     }
 

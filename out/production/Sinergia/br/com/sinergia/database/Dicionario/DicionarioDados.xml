@@ -1,0 +1,28 @@
+<Tabelas>
+    <Tabela id="1" nome="TSIUSU" pesq="Tabela de Usuários" descrCompl="Tabela de Usuários">
+        <Campo id="1" nome="CODUSU" pesq="Cód. Usuário" descrCompl="Código do Usuário" tipo="2" tam="22" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="2" nome="LOGIN" pesq="Login" descrCompl="Login" tipo="4" tam="20" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="3" nome="NOME" pesq="Nome" descrCompl="Nome" tipo="4" tam="60" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="4" nome="SENHA" pesq="Senha" descrCompl="Senha" tipo="4" tam="60" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="5" nome="PERFIL" pesq="Cód. Perfil" descrCompl="Código Perfil do Usuário" tipo="2" tam="22" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="6" nome="CODEMP" pesq="Cód. Empresa" descrCompl="Código Empresa do Usuário" tipo="2" tam="22" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="7" nome="ATIVO" pesq="Ativo" descrCompl="Ativo" tipo="1" tam="1" nullable="N">
+            <Opcoes/>
+        </Campo>
+        <Campo id="8" nome="FOTO" pesq="Foto" descrCompl="Foto" tipo="6" tam="1" nullable="S">
+            <Opcoes/>
+        </Campo>
+    </Tabela>
+</Tabelas>
